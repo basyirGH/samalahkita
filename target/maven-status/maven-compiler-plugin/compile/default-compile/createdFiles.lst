@@ -1,0 +1,7 @@
+com\inmyshoes\model\Circumstance.class
+com\inmyshoes\controller\HealthController.class
+com\inmyshoes\service\CircumstanceService.class
+com\inmyshoes\ServletInitializer.class
+com\inmyshoes\controller\CircumstanceController.class
+com\inmyshoes\InMyShoesApplication.class
+com\inmyshoes\repository\CircumstanceRepository.class
