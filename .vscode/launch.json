@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SimliarLivesApplication<basyir-similarlives>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.similarlives.SimliarLivesApplication",
+            "projectName": "basyir-similarlives",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-InMyShoesApplication<basyir-inmyshoes>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.inmyshoes.InMyShoesApplication",
+            "projectName": "basyir-inmyshoes",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
