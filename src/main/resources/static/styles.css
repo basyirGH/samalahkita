@@ -1,23 +1,30 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Merriweather", sans-serif;
+  font-size: large;
   box-sizing: border-box;
 }
 
-body {
+.header {
+  justify-content: center;
+  align-items: center;
+  background: #d4d4d4;
+}
+
+.content {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #ffffff;
+  background: #d4d4d4;
   flex-direction: column;
 }
 
 .scroll {
   position: relative;
   display: flex;
-  width: 700px;
+  width: 1400px;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent)
 }
@@ -58,15 +65,16 @@ body {
   display: inline-flex;
   margin: 10px;
   letter-spacing: 0.2em;
-  background: #333;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
+  background: #ffffff;
+  color: #030000;
+  padding: 15px 30px;
+  border-radius: 25px;
+  border-color: rgb(255, 255, 255);
   transition: 0.5s;
 }
 
 .scroll div span:hover {
-  background: #3fd2f9;
+  background: #b6b6b6;
   cursor: pointer;
 }
 

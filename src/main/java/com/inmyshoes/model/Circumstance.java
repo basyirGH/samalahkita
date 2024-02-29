@@ -18,6 +18,9 @@ public class Circumstance {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "level", nullable = false)
+    private String level;
+
     public long getId() {
         return id;
     }
@@ -33,4 +36,16 @@ public class Circumstance {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    
+
+
 }

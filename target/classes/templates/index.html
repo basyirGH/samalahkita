@@ -6,6 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/js/tabler.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler-flags.min.css">
@@ -16,26 +21,84 @@
 </head>
 
 <body>
-    <div style="text-align: center;">
-        <br>
-        <p>InMyShoes</p>
-        <div class="slider-container">
-            <div class="scroll" style="--time:20s" th:each="circumstance : ${circumstances}">
-                <div th:each="i : ${#numbers.sequence(0, circumstances.size() - 1)}">
-                    <span th:text="*{circumstance.name}"></span>
+    <div class="content">
+        <div style="text-align: center;">
+            <p>InMyShoes</p>
+            <br>
+            <p> Our circumstances are unique but that doesn't mean we're alone. <br> Pick or search for a subject below to start and find out if others are experiencing the same.</p>
+            <br>
+            <div class="circumstances">
+                <div class="scroll" style="--time:180s">
+                    <div id="container1A"></div>
+                    <div id="container1B"></div>
+                </div>
+                <div class="scroll" style="--time:120s">
+                    <div id="container2A"></div>
+                    <div id="container2B"></div>
+                </div>
+                <div class="scroll" style="--time:240s">
+                    <div id="container3A"></div>
+                    <div id="container3B"></div>
+                </div>
+                <div class="scroll" style="--time:200s">
+                    <div id="container4A"></div>
+                    <div id="container4B"></div>
                 </div>
             </div>
-            <!-- <div class="scroll" style="--time:30s" th:each="circumstance : ${circumstances}">
-                <div>
-                    <span th:text="*{circumstance.name}"></span>
-                </div>
-                <div>
-                    <span th:text="*{circumstance.name}"></span>
-                </div>
-            </div> -->
         </div>
     </div>
-    
+    <script>
+        // Function to make the GET request
+        async function fetchData() {
+            try {
+                const response = await fetch('http://localhost:5000/circumstances'); // Replace with your API endpoint
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // Function to generate <span> elements and populate them with data
+        async function generateSpans() {
+            const container1A = document.getElementById('container1A');
+            const container1B = document.getElementById('container1B');
+            const container2A = document.getElementById('container2A');
+            const container2B = document.getElementById('container2B');
+            const container3A = document.getElementById('container3A');
+            const container3B = document.getElementById('container3B');
+            const container4A = document.getElementById('container4A');
+            const container4B = document.getElementById('container4B');
+
+            // Fetch data
+            const fetchedData = await fetchData();
+
+            // Check if data is available
+            if (fetchedData) {
+                // Iterate over the data and create <span> elements
+                for (let i = 0; i < fetchedData.length; i++) {
+                    const span = document.createElement('span');
+                    span.textContent = fetchedData[i].name; // Replace with the actual property you want to display
+
+                    // Append the <span> to the container
+                    container1A.appendChild(span.cloneNode(true));
+                    container1B.appendChild(span.cloneNode(true));
+                    container2A.appendChild(span.cloneNode(true));
+                    container2B.appendChild(span.cloneNode(true));
+                    container3A.appendChild(span.cloneNode(true));
+                    container3B.appendChild(span.cloneNode(true));
+                    container4A.appendChild(span.cloneNode(true));
+                    container4B.appendChild(span.cloneNode(true));
+                }
+            }
+        }
+
+        // Call the function to generate and populate <span> elements
+        generateSpans();
+
+    </script>
+    </div>
+
 </body>
 
 </html>
