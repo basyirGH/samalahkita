@@ -25,7 +25,7 @@
         <div style="text-align: center;">
             <p>InMyShoes</p>
             <br>
-            <p> Our circumstances are unique but that doesn't mean we're alone. <br> Pick or search for a subject below to start and find out if others are experiencing the same.</p>
+            <p> Our circumstances are unique but that doesn't mean we're alone. <br> Pick or search for a real-life experience below to start and find out if others are experiencing the same <br> to guide you in achieving a goal, get the help that you might need or <br> simply to seek reassurance to support you on your journey.</p>
             <br>
             <div class="circumstances">
                 <div class="scroll" style="--time:180s">
@@ -45,13 +45,19 @@
                     <div id="container4B"></div>
                 </div>
             </div>
+            <div>
+                <br>
+                <br>
+                <br>
+                <span class="inMyShoesCounter">60</span>
+            </div>
         </div>
     </div>
     <script>
         // Function to make the GET request
         async function fetchData() {
             try {
-                const response = await fetch('http://localhost:5000/circumstances'); // Replace with your API endpoint
+                const response = await fetch('http://localhost:5000/circumstance-level?level=2'); // Replace with your API endpoint
                 const data = await response.json();
                 return data;
             } catch (error) {

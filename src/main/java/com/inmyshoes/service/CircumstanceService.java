@@ -38,11 +38,11 @@ public class CircumstanceService {
     }
 
     public Circumstance getByName(String name) {
-        return circumstanceRepository.getCircumstanceByName(name);
+        return circumstanceRepository.findByName(name);
     }
 
-    public List<Circumstance> getCircumstancesIgnoreCaseLike(String searchString) {
-        return circumstanceRepository.findByNameIgnoreCaseLike("%" + searchString + "%");
+    public List<Circumstance> getByLevel(String level) {
+        return circumstanceRepository.findByLevel(level);
     }
 
     /*

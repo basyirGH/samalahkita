@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+.inMyShoesCounter {
+  font-size: xx-large;
+}
+
 .header {
   justify-content: center;
   align-items: center;
@@ -74,7 +78,7 @@
 }
 
 .scroll div span:hover {
-  background: #b6b6b6;
+  background: #fcff5c;
   cursor: pointer;
 }
 

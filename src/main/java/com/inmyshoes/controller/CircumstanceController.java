@@ -48,16 +48,10 @@ public class CircumstanceController {
         return new ResponseEntity<>(deletedCircumstance, HttpStatus.OK);
     }
 
-    // get circumstance by name using a raw SQL statement
-    @GetMapping("/circumstance-by-name")
-    public Circumstance getCircumstanceByName(@RequestParam(name ="circumstanceName") String circumstanceName) {
-        return circumstanceService.getByName(circumstanceName);
-    }
-
-    // get search results by name
-    @GetMapping("/circumstance-by-name-like")
-    public List<Circumstance> getCircumstanceByNameLike(@RequestParam(name ="search") String search) {
-        return circumstanceService.getCircumstancesIgnoreCaseLike(search);
+    // get cc in specific level
+    @GetMapping("/circumstance-level")
+    public List<Circumstance> getLevel2Circumstances(@RequestParam(name = "level") String level) {
+        return circumstanceService.getByLevel(level);
     }
 
 }

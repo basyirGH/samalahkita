@@ -7,9 +7,10 @@ import java.util.List;
 
 public interface CircumstanceRepository extends JpaRepository<Circumstance, Long> {
 
-    @Query(value = "SELECT * FROM circumstance WHERE name = ?1", nativeQuery = true)
-    Circumstance getCircumstanceByName(String circumstanceName);
+    // @Query(value = "SELECT * FROM circumstance WHERE name = ?1", nativeQuery = true)
+    // Circumstance getCircumstanceByName(String circumstanceName);
 
-    List<Circumstance> findByNameIgnoreCaseLike(String searchString);
+    Circumstance findByName(String circumstanceName);
 
+    List<Circumstance> findByLevel(String level);
 }
