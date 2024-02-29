@@ -1,8 +1,8 @@
-import java.util.List;
+package com.inmyshoes.service;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.inmyshoes.model.StoryCard;
 import com.inmyshoes.repository.StoryCardRepository;
 
