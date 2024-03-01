@@ -10,10 +10,42 @@
   font-size: xx-large;
 }
 
+.intro {
+  font-size: medium;
+}
+
+.title {
+  padding-left: 2%;
+  font-size: x-large;
+}
+
+.header-button {
+  font-size: medium;
+  border-radius: 25px;
+  margin-left: auto; /* Align to the right */
+  background-color: #f0f0f0; 
+  border-color: #030000;
+  padding: 15px 30px;
+}
+
+.header-button-container {
+  padding: 15px;
+}
+
 .header {
-  justify-content: center;
-  align-items: center;
-  background: #d4d4d4;
+  background: #e9e7dc;
+}
+
+.header-line {
+  /* Set the thickness of the line */
+  height: 3px;
+
+  /* Set the background color and adjust opacity */
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.header-content {
+  display: flex;
 }
 
 .content {
@@ -21,7 +53,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #d4d4d4;
+  background: #e9e7dc;
   flex-direction: column;
 }
 
