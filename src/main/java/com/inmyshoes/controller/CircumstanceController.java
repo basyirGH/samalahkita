@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
 import java.util.List;
 
 @RestController
@@ -30,7 +32,7 @@ public class CircumstanceController {
 
     //get all the circumstances in the table in our database
     @GetMapping("/circumstances")
-    public List<Circumstance> getCircumstance() {
+    public List<Circumstance> getCircumstances() {
         return circumstanceService.getAll();
     }
 

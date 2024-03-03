@@ -16,7 +16,6 @@ public class HealthController {
     public ModelAndView ping() {
       
         ModelAndView mav = new ModelAndView();
-        mav.addObject("circumstances", circumstanceService.getAll());
         mav.setViewName("index");
         return mav;
 
