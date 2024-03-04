@@ -17,7 +17,7 @@ public class StoryCardController {
     public ModelAndView getStoryBuilderView1(@RequestParam(name = "circumstanceId") String circumstanceId,
             @RequestParam(name = "circumstanceName") String circumstanceName) {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("story-builder-1");
+        mav.setViewName("story-builder-2");
         mav.addObject("circumstanceName", circumstanceName);
         mav.addObject("circumstanceId", circumstanceId);
         return mav;

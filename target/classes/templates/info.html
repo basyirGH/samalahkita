@@ -52,40 +52,42 @@
     <div class="content-1">
         <br>
         <div class="circumstances">
-            <div class="scroll" style="--time:580s">
+            <div class="scroll" style="--time:180s">
                 <div id="container1A"></div>
                 <div id="container1B"></div>
             </div>
-            <div class="scroll" style="--time:560s">
+            <div class="scroll" style="--time:160s">
                 <div id="container2A"></div>
                 <div id="container2B"></div>
             </div>
-            <div class="scroll" style="--time:540s">
+            <div class="scroll" style="--time:240s">
                 <div id="container3A"></div>
                 <div id="container3B"></div>
             </div>
-            <div class="scroll" style="--time:600s">
+            <div class="scroll" style="--time:200s">
                 <div id="container4A"></div>
                 <div id="container4B"></div>
             </div>
         </div>
-        <br><br>
+        <br><br><br>
         <div class="row height d-flex justify-content-center align-items-center">
-            <div class="form">
-                <i class="fa fa-search"></i>
-                <input type="text" class="form-control form-input" id="searchCircumstanceInput">
-            </div>
+                <div class="form">
+                    <i class="fa fa-search"></i>
+                    <input type="text" class="form-control form-input" id="searchCircumstanceInput">
+                </div>
         </div>
-        <br>
         <div class="container mt-2">
             <p class="intro text-center mx-3">
                 <!-- Adjust the mx-3 value for the desired left and right margin -->
-                Luahkan segalanya di sini. <br> Tiada pendaftaran diperlukan dan 100% data adalah 'anonymous'.
+                Setiap manusia dikurniakan ujian yang unik, tapi tak bermakna kita keseorangan.
+                Cari
+                atau pilih satu situasi 'real-life' di atas untuk teroka liku-liku
+                kehidupan
+                mirip anda yang ditempuhi orang lain untuk membantu mencapai matlamat anda,
+                mendapatkan ilmu atau pertolongan yang anda perlukan, atau sekadar mengurangkan
+                bebanan emosi yang anda hadapi. <br> Tiada pendaftaran diperlukan dan 100% data adalah 'anonymous'. 
                 #SamalahKita🫂
-            </p>
-            <a style="color: black; text-decoration: underline;" href="google.com">Kenapa laman web ini wujud?</a>
-            <br>
-            <br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br>
         </div>
     </div>
     <div class="upper-lines" style="height: 2px; margin-bottom: 20px;"></div>
@@ -99,7 +101,7 @@
     <div class="upper-lines" style="height: 18px; margin-bottom: 4px;"></div>
     <div class="upper-lines" style="height: 20px; margin-bottom: 2px;"></div>
     <div class="upper-lines" style="height: 22px; margin-bottom: 1px;"></div>
-    <!-- <div class="content-2">
+    <div class="content-2">
         <h4 class="research" href="#">Tajuk 1</h4>
     </div>
     <div class="content-3">
@@ -110,7 +112,7 @@
     </div>
     <div class="content-5">
         <h4 class="research" href="#">Tajuk 4</h4>
-    </div> -->
+    </div>
     <div class="bottom-lines" style="height: 22px; margin-bottom: 1px;"></div>
     <div class="bottom-lines" style="height: 20px; margin-bottom: 2px;"></div>
     <div class="bottom-lines" style="height: 18px; margin-bottom: 4px;"></div>
@@ -155,8 +157,6 @@
             // Fetch data
             const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-level?level=2");
 
-            shuffleArray(fetchedData);
-
             // Check if data is available
             if (fetchedData) {
                 // Iterate over the data and create <span> elements
@@ -190,13 +190,6 @@
             }
         }
 
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
-
         async function doClickCircumstanceFromHome(id, name) {
             window.location.href = "http://localhost:5000/story-card-builder-view-1?circumstanceId=" + id + "&circumstanceName=" + name;
         }
@@ -206,30 +199,36 @@
                 "cerita",
                 "pov",
                 "isihati",
+                "emosi",
                 "deepthoughts",
                 "penghargaan",
-                "niatbaik",
-                "citacita",
+                "peristiwa",
+                "majorlifeevent",
+                "mangsakeadaan",
+                "specialcircumstances",
                 "commonground",
                 "sharedexperience",
                 "rasasyukur",
-                "reasontobethankful",
+                "pengakuan",
+                "jauhtermenung",
                 "situasi",
                 "nasib",
-                "impian",
                 "masalah",
                 "kekeliruan",
                 "pendapat",
-                "kurnian",
+                "nikmat",
                 "perasaan",
+                "bakatterpendam",
+                "yangcomplicated",
                 "samalahkita",
                 "confession",
                 "luahan",
                 "someonerelatable",
                 "kejayaan",
                 "ujian",
+                "keluhan",
+                "rungutan",
                 "struggle",
-                "minat",
             ];
 
             let currentIndex = 0;
@@ -256,6 +255,156 @@
             document.addEventListener('DOMContentLoaded', function () {
                 inputElement.focus();
             });
+        }
+    </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Font Awesome CDN for the search icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Serif+Text:ital@0;1&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <title>SamalahKita</title>
+</head>
+
+<body>
+
+    <!-- header -->
+    <header class="header navbar navbar-expand-lg navbar-light bg-light">
+        <a class="header-title navbar-brand" href="#">SamalahKita</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="header-navbar collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Keselamatan dan Privasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hubungi Kami</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="content-2-story-builder">
+        <p class="center-bottom-text">Warna biru sering dikaitkan dengan emosi sedih atau kekosongan,
+            tapi biru juga merupakan simbol perasaan tenang, tertib dan stabil.
+            <br> Pelbagai kajian telah dilakukan dengan psikologi warna dan impaknya
+            terhadap kesihatan mental. <a
+                style=" font-size: x-small; color: rgb(255, 255, 255); text-decoration: underline;"
+                href="https://www.verywellmind.com/the-color-psychology-of-blue-2795815"> Baca lebih lanjut. </a>
+        </p>
+    </div>
+
+    <div class="content-1-story-builder">
+        <br>
+        <div class="main-circumstance"><span><h2>Kami memerlukan sedikit 'clue'.</h2></span></div>
+        <br>
+        <div style="font-size: xx-small;" class="main-circumstance"><span> Setiap perjalanan ada permulaannya. Untuk
+                pengalaman
+                yang terbaik,
+                sekurang-kurangnya satu latar belakang demografik anda diperlukan, seperti <b> umur atau jantina </b>.
+                Ini bukan sahaja meningkatkan kepadanan situasi anda, malah ia membantu pencarian statistik dan memupuk
+                sifat empati antara satu
+                sama lain di SamalahKita. Segalanya tertakluk kepada perincian yang anda ingin kongsikan secara tanpa
+                nama di sini.
+                <br> Bayangkan anda bermain lego. Semakin banyak blok, semakin mudah difahami
+                binaan tersebut. </span></div>
+        <br>
+        <div class="main-circumstance"><span>Got nothing to say yet? <a
+                    style="color: black; text-decoration: underline;" href="google.com"> Baca Kad Cerita yang
+                    berkaitan.</span>
+            </a>
+        </div>
+        <hr style="height:0.5px; background-color: rgba(0, 0, 0, 0.5);">
+
+    </div>
+    <div class="story-builder-start-area">
+        <div class="main-circumstance">
+            <span th:text="${circumstanceName}"></span>
+        </div>
+        <br>
+        <p style="text-align: center">❝<i> This is my story. </i>❞</p>
+        <div id="cancelButton" class="white-button"><span style="font-size: small;">Batal</span></div>
+        <div id="nextButton" style="border: 1px solid #00a2ff" class="white-button"><span
+                style="font-size: small;">Seterusnya</span></div>
+        <br><br>
+        <p style="font-size: x-small; text-align: center">Dengan menekan Seterusnya, anda bersetuju dengan <a
+                style="font-size: x-small; color: black; text-decoration: underline;" href="google.com"> Terma dan
+                Syarat pengguna. </a></p>
+
+    </div>
+
+    <div>
+        <br>
+
+        <div class="side-circumstances-space" id="sideCircumstances">
+
+        </div>
+        <br>
+    </div>
+
+    <script th:inline="javascript">
+
+        listenToNextButtonClick();
+        listenToCancelButtonClick();
+
+        function listenToNextButtonClick() {
+            var circumstanceId = /*[[${circumstanceId}]]*/ '1';
+            document.getElementById("nextButton").addEventListener("click", function (event) {
+                window.location.href = "http://localhost:5000/story-card-builder-view-2?circumstanceId=" + circumstanceId;
+            });
+        }
+
+        function listenToCancelButtonClick() {
+            document.getElementById("cancelButton").addEventListener("click", function (event) {
+                window.location.href = "http://localhost:5000";
+            });
+        }
+
+        function addNewDiv() {
+            // Create a new div element
+            var newDiv = document.createElement('div');
+
+            // Add a class to the new div for styling
+            newDiv.className = 'main-circumstance';
+            var newSpan = document.createElement('span');
+            newSpan.textContent = "test";
+            newDiv.appendChild(newSpan);
+
+            // Append the new div as a child to the parent div
+            document.getElementById('sideCircumstances').appendChild(newDiv);
+
+            setInterval(addNewDiv, 1000);
         }
     </script>
 
