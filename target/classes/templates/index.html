@@ -81,24 +81,15 @@
             <p class="intro text-center mx-3">
                 <!-- Adjust the mx-3 value for the desired left and right margin -->
                 Luahkan segalanya di sini. <br> Tiada pendaftaran diperlukan dan 100% data adalah 'anonymous'.
-                #SamalahKita🫂
+                <br>#SamalahKita <img style="height: 20px; width: 20px" th:src="@{/icons/hug.svg}" alt="hugging" />
             </p>
-            <a style="color: black; text-decoration: underline;" href="google.com">Kenapa laman web ini wujud?</a>
-            <br>
+            <p>Sebuah platform untuk berkongsi persamaan dan mencari kisah atau pendapat yang serupa. <br><a
+                    style="color: black; text-decoration: underline;" href="google.com">Kenapa laman web ini wujud? <img
+                        style="height: 18px; width: 18px;" th:src="@{/icons/new_tab.svg}" alt="new tab" /></a></p>
             <br><br><br><br><br>
         </div>
     </div>
-    <div class="upper-lines" style="height: 2px; margin-bottom: 20px;"></div>
-    <div class="upper-lines" style="height: 4px; margin-bottom: 18px;"></div>
-    <div class="upper-lines" style="height: 6px; margin-bottom: 16px;"></div>
-    <div class="upper-lines" style="height: 8px; margin-bottom: 14px;"></div>
-    <div class="upper-lines" style="height: 10px; margin-bottom: 12px;"></div>
-    <div class="upper-lines" style="height: 12px; margin-bottom: 10px;"></div>
-    <div class="upper-lines" style="height: 14px; margin-bottom: 8px;"></div>
-    <div class="upper-lines" style="height: 16px; margin-bottom: 6px;"></div>
-    <div class="upper-lines" style="height: 18px; margin-bottom: 4px;"></div>
-    <div class="upper-lines" style="height: 20px; margin-bottom: 2px;"></div>
-    <div class="upper-lines" style="height: 22px; margin-bottom: 1px;"></div>
+
     <!-- <div class="content-2">
         <h4 class="research" href="#">Tajuk 1</h4>
     </div>
@@ -111,7 +102,7 @@
     <div class="content-5">
         <h4 class="research" href="#">Tajuk 4</h4>
     </div> -->
-    <div class="bottom-lines" style="height: 22px; margin-bottom: 1px;"></div>
+    <!-- <div class="bottom-lines" style="height: 22px; margin-bottom: 1px;"></div>
     <div class="bottom-lines" style="height: 20px; margin-bottom: 2px;"></div>
     <div class="bottom-lines" style="height: 18px; margin-bottom: 4px;"></div>
     <div class="bottom-lines" style="height: 16px; margin-bottom: 6px;"></div>
@@ -121,149 +112,194 @@
     <div class="bottom-lines" style="height: 8px; margin-bottom: 14px;"></div>
     <div class="bottom-lines" style="height: 6px; margin-bottom: 16px;"></div>
     <div class="bottom-lines" style="height: 4px; margin-bottom: 18px;"></div>
-    <div class="bottom-lines" style="height: 2px; margin-bottom: 20px;"></div>
-    <script>
-        // Call the function to generate and populate <span> elements
-        generateSpans();
+    <div class="bottom-lines" style="height: 2px; margin-bottom: 20px;"></div> -->
 
-        generateAnimatedSearchPlaceholders();
+    <!-- <div class="bottom-div">
+        <div class="upper-lines" style="height: 2px; margin-bottom: 20px;"></div>
+        <div class="upper-lines" style="height: 4px; margin-bottom: 18px;"></div>
+        <div class="upper-lines" style="height: 6px; margin-bottom: 16px;"></div>
+        <div class="upper-lines" style="height: 8px; margin-bottom: 14px;"></div>
+        <div class="upper-lines" style="height: 10px; margin-bottom: 12px;"></div>
+        <div class="upper-lines" style="height: 12px; margin-bottom: 10px;"></div>
+        <div class="upper-lines" style="height: 14px; margin-bottom: 8px;"></div>
+        <div class="upper-lines" style="height: 16px; margin-bottom: 6px;"></div>
+        <div class="upper-lines" style="height: 18px; margin-bottom: 4px;"></div>
+        <div class="upper-lines" style="height: 20px; margin-bottom: 2px;"></div>
+        <div class="upper-lines" style="height: 22px; margin-bottom: 1px;"></div>
+    </div> -->
+</body>
+<script>
+    // Call the function to generate and populate <span> elements
+    generateSpans();
 
-        clickSearch();
+    generateAnimatedSearchPlaceholders();
 
-        // Function to make the GET request
-        async function sendGetRequest(endpoint) {
-            try {
-                const response = await fetch(endpoint); // Replace with your API endpoint
-                const data = await response.json();
-                return data;
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
+    clickSearch();
+
+    // Function to make the GET request
+    async function sendGetRequest(endpoint) {
+        try {
+            const response = await fetch(endpoint); // Replace with your API endpoint
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching data:', error);
         }
+    }
 
-        // Function to generate <span> elements and populate them with data
-        async function generateSpans() {
-            const container1A = document.getElementById('container1A');
-            const container1B = document.getElementById('container1B');
-            const container2A = document.getElementById('container2A');
-            const container2B = document.getElementById('container2B');
-            const container3A = document.getElementById('container3A');
-            const container3B = document.getElementById('container3B');
-            const container4A = document.getElementById('container4A');
-            const container4B = document.getElementById('container4B');
+    // Function to generate <span> elements and populate them with data
+    async function generateSpans() {
+        const container1A = document.getElementById('container1A');
+        const container1B = document.getElementById('container1B');
+        const container2A = document.getElementById('container2A');
+        const container2B = document.getElementById('container2B');
+        const container3A = document.getElementById('container3A');
+        const container3B = document.getElementById('container3B');
+        const container4A = document.getElementById('container4A');
+        const container4B = document.getElementById('container4B');
 
-            // Fetch data
-            const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-level?level=2");
+        // Fetch data
+        const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-level?level=2");
+
+        // Check if data is available
+        if (fetchedData) {
 
             shuffleArray(fetchedData);
+            // Iterate over the data and create <span> elements
+            for (let i = 0; i < fetchedData.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = fetchedData[i].name; // Replace with the actual property you want to display
+                span.classList.add('circumstance');
+                span.setAttribute('id', fetchedData[i].id);
 
-            // Check if data is available
-            if (fetchedData) {
-                // Iterate over the data and create <span> elements
-                for (let i = 0; i < fetchedData.length; i++) {
-                    const span = document.createElement('span');
-                    span.textContent = fetchedData[i].name; // Replace with the actual property you want to display
-                    span.classList.add('circumstance');
-                    span.setAttribute('id', fetchedData[i].id);
+                // Append the <span> to the container
+                container1A.appendChild(span.cloneNode(true));
+                container1B.appendChild(span.cloneNode(true));
 
-                    // Append the <span> to the container
-                    container1A.appendChild(span.cloneNode(true));
-                    container1B.appendChild(span.cloneNode(true));
-                    container2A.appendChild(span.cloneNode(true));
-                    container2B.appendChild(span.cloneNode(true));
-                    container3A.appendChild(span.cloneNode(true));
-                    container3B.appendChild(span.cloneNode(true));
-                    container4A.appendChild(span.cloneNode(true));
-                    container4B.appendChild(span.cloneNode(true));
-                }
-
-                var circumstanceElements = document.getElementsByClassName('circumstance');
-
-                // Iterate through the collection and add event listener to each element
-                for (var i = 0; i < circumstanceElements.length; i++) {
-                    circumstanceElements[i].addEventListener('click', function (event) {
-                        // Your click event handling code here
-                        console.log("Element clicked:", this.textContent); // Example: Log the text content of the clicked element
-                        doClickCircumstanceFromHome(this.id, this.textContent);
-                    });
-                }
-            }
-        }
-
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
-
-        async function doClickCircumstanceFromHome(id, name) {
-            window.location.href = "http://localhost:5000/story-card-builder-view-1?circumstanceId=" + id + "&circumstanceName=" + name;
-        }
-
-        function generateAnimatedSearchPlaceholders() {
-            const circumstanceSynonyms = [
-                "cerita",
-                "pov",
-                "isihati",
-                "deepthoughts",
-                "penghargaan",
-                "niatbaik",
-                "citacita",
-                "commonground",
-                "sharedexperience",
-                "rasasyukur",
-                "reasontobethankful",
-                "situasi",
-                "nasib",
-                "impian",
-                "masalah",
-                "kekeliruan",
-                "pendapat",
-                "kurnian",
-                "perasaan",
-                "samalahkita",
-                "confession",
-                "luahan",
-                "someonerelatable",
-                "kejayaan",
-                "ujian",
-                "struggle",
-                "minat",
-            ];
-
-            let currentIndex = 0;
-
-            // Get the input element by its ID
-            var inputElement = document.getElementById('searchCircumstanceInput');
-
-            // Function to update the placeholder every 2 seconds
-            function updatePlaceholder() {
-                inputElement.placeholder = "Cari #" + circumstanceSynonyms[currentIndex];
-                currentIndex = (currentIndex + 1) % circumstanceSynonyms.length; // Loop through the array
             }
 
-            // Set interval to update placeholder every 2 seconds
-            setInterval(updatePlaceholder, 2000);
+            shuffleArray(fetchedData);
+            for (let i = 0; i < fetchedData.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = fetchedData[i].name; // Replace with the actual property you want to display
+                span.classList.add('circumstance');
+                span.setAttribute('id', fetchedData[i].id);
 
+                // Append the <span> to the container
+
+                container2A.appendChild(span.cloneNode(true));
+                container2B.appendChild(span.cloneNode(true));
+
+            }
+
+            shuffleArray(fetchedData);
+            for (let i = 0; i < fetchedData.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = fetchedData[i].name; // Replace with the actual property you want to display
+                span.classList.add('circumstance');
+                span.setAttribute('id', fetchedData[i].id);
+                container3A.appendChild(span.cloneNode(true));
+                container3B.appendChild(span.cloneNode(true));
+
+            }
+
+            shuffleArray(fetchedData);
+            for (let i = 0; i < fetchedData.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = fetchedData[i].name; // Replace with the actual property you want to display
+                span.classList.add('circumstance');
+                span.setAttribute('id', fetchedData[i].id);
+
+                // Append the <span> to the container
+                container4A.appendChild(span.cloneNode(true));
+                container4B.appendChild(span.cloneNode(true));
+            }
+
+            var circumstanceElements = document.getElementsByClassName('circumstance');
+
+            // Iterate through the collection and add event listener to each element
+            for (var i = 0; i < circumstanceElements.length; i++) {
+                circumstanceElements[i].addEventListener('click', function (event) {
+                    // Your click event handling code here
+                    console.log("Element clicked:", this.textContent); // Example: Log the text content of the clicked element
+                    doClickCircumstanceFromHome(this.id, this.textContent);
+                });
+            }
+        }
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    async function doClickCircumstanceFromHome(id, name) {
+        window.location.href = "http://localhost:5000/story-card-builder-view-1?circumstanceId=" + id + "&circumstanceName=" + name;
+    }
+
+    function generateAnimatedSearchPlaceholders() {
+        const circumstanceSynonyms = [
+            "cerita",
+            "pov",
+            "isihati",
+            "deepthoughts",
+            "penghargaan",
+            "niat",
+            "citacita",
+            "commonground",
+            "sharedexperience",
+            "rasasyukur",
+            "reasontobethankful",
+            "situasi",
+            "nasib",
+            "impian",
+            "masalah",
+            "kekeliruan",
+            "pendapat",
+            "kurnian",
+            "perasaan",
+            "samalahkita",
+            "confession",
+            "luahan",
+            "someonerelatable",
+            "kejayaan",
+            "ujian",
+            "struggle",
+            "minat",
+        ];
+
+        let currentIndex = 0;
+
+        // Get the input element by its ID
+        var inputElement = document.getElementById('searchCircumstanceInput');
+
+        // Function to update the placeholder every 2 seconds
+        function updatePlaceholder() {
+            inputElement.placeholder = "Cari #" + circumstanceSynonyms[currentIndex];
+            currentIndex = (currentIndex + 1) % circumstanceSynonyms.length; // Loop through the array
         }
 
-        function clickSearch() {
-            // Get the input element by its ID
-            var inputElement = document.getElementById('searchCircumstanceInput');
+        // Set interval to update placeholder every 2 seconds
+        setInterval(updatePlaceholder, 2000);
 
-            // Trigger click on the input element when the page loads
-            document.addEventListener('DOMContentLoaded', function () {
-                inputElement.focus();
-            });
-        }
-    </script>
+    }
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    function clickSearch() {
+        // Get the input element by its ID
+        var inputElement = document.getElementById('searchCircumstanceInput');
 
-</body>
+        // Trigger click on the input element when the page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            inputElement.focus();
+        });
+    }
+</script>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script
 
 </html>
