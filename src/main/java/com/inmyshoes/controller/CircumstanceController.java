@@ -52,8 +52,14 @@ public class CircumstanceController {
 
     // get cc in specific level
     @GetMapping("/circumstance-level")
-    public List<Circumstance> getLevel2Circumstances(@RequestParam(name = "level") String level) {
+    public List<Circumstance> getCircumstancesByLevel(@RequestParam(name = "level") String level) {
         return circumstanceService.getByLevel(level);
     }
+
+      // get cc in specific category
+      @GetMapping("/circumstance-category")
+      public List<Circumstance> getCircumstancesByCategory(@RequestParam(name = "category") String category) {
+          return circumstanceService.getByCategory(category);
+      }
 
 }

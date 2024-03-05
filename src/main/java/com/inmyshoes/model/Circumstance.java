@@ -26,6 +26,9 @@ public class Circumstance {
     @Column(name = "level", nullable = false)
     private String level;
 
+    @Column(name = "category", nullable = false, columnDefinition = "VARCHAR(255) DEFAULT 'main'")
+    private String category;
+
     @ManyToMany
     @JoinTable(
         name = "circumstance_and_story_card",
@@ -56,6 +59,14 @@ public class Circumstance {
 
     public void setLevel(String level) {
         this.level = level;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     

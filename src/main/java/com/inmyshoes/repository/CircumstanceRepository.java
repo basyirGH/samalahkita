@@ -13,4 +13,6 @@ public interface CircumstanceRepository extends JpaRepository<Circumstance, Long
     Circumstance findByName(String circumstanceName);
 
     List<Circumstance> findByLevel(String level);
+
+    List<Circumstance> findByCategory(String category);
 }

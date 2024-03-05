@@ -8,14 +8,11 @@
 }
 
 body {
-  background-color: #e9e7dc;
+  background-color: #faf3cd;
   overflow-x: hidden;
   ;
 }
 
-.inMyShoesCounter {
-  font-size: xx-large;
-}
 
 .intro {
   font-size: medium;
@@ -27,7 +24,8 @@ body {
 }
 
 .header {
-  background-color: #e9e7dc !important;
+  background-color: #faf3cd
+ !important;
   border-bottom: 1px solid black !important;
 }
 
@@ -116,7 +114,7 @@ body {
   cursor: pointer;
   font-size: small;
   display: inline-flex;
-  margin: 2px;
+  margin: 5px;
   letter-spacing: 0.1em;
   background: #ffffff;
   color: #030000;
@@ -209,10 +207,11 @@ body {
 }
 
 .story-builder-start-area {
-  padding-left: 6%;
-  padding-right: 6%;
+  padding-left: 0%;
+  padding-right: 0%;
   text-align: center;
 }
+
 
 .content-1-story-builder {
   /* display:flexbox; */
@@ -223,7 +222,8 @@ body {
   padding-right: 6%;
   text-align: left;
   /* min-height: 100vh; */
-  background: #e9e7dc;
+  background: #faf3cd
+;
   flex-direction: column;
 }
 
@@ -233,7 +233,8 @@ body {
   align-items: center;
   text-align: center;
   /* min-height: 100vh; */
-  background: #e9e7dc;
+  background: #faf3cd
+;
   flex-direction: column;
 }
 
@@ -249,7 +250,7 @@ body {
 
 .content-2-story-builder {
   /* display: flex; */
-  border-bottom: 0.5px solid black;
+  /* border-bottom: 0.5px solid black; */
   position: relative;
   min-height: 60vh;
   flex-direction: column;
@@ -442,8 +443,10 @@ body {
     right: 0;
     bottom: 0;
     width: 0;
-    background: #e9e7dc;
-    border-left: 4px solid #e9e7dc;
+    background: #faf3cd
+;
+    border-left: 4px solid #faf3cd
+;
 
     -webkit-animation-name: typing, blinking;
     -webkit-animation-duration: 5s, 1s;
@@ -460,7 +463,8 @@ body {
 
 @-webkit-keyframes blinking {
   0%   { border-color: transparent; }
-  50% { border-color: #e9e7dc; }
+  50% { border-color: #faf3cd
+; }
   100% { border-color: transparent; }
 }
 
@@ -495,10 +499,41 @@ body {
 
 
 .bottom-div {
-  background-color: #e9e7dc;
+  background-color: #faf3cd
+;
   padding: 0px;
   text-align: center;
   position: relative;
   bottom: 0;
   width: 100%;
+}
+
+#container {
+  padding-left:6%;
+  padding-right: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  text-align: justify;
+  overflow-y: auto; /* Enable vertical scroll for convenience on smaller screens */
+}
+
+#text {
+  display: inline-block;
+  white-space: pre-wrap; /* Allow line breaks */
+  color: black;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.typewriter-button {
+  margin: 0 10px;
+  padding: 10px;
+  cursor: pointer;
 }
