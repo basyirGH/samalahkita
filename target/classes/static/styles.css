@@ -497,6 +497,33 @@ body {
   text-decoration: none;
 }
 
+    /* Additional styling for the buttons */
+    .prev-carousel,
+    .next-carousel {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        /* padding: 15px 30px; */
+        color: white; /* Adjust the color as needed */
+    }
+
+    .prev-carousel {
+        left: 6%;
+    }
+
+    .next-carousel {
+        right: 6%;
+    }
+
+    #cancelButton,
+    #nextButton {
+        background-color: white; /* Adjust the background color as needed */
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
 
 .bottom-div {
   background-color: #f1efe3
