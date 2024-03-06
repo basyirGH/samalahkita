@@ -56,27 +56,27 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="d-block w-100">
-                            <h4>i. Perasaan</h4>
+                            <h6>Jilid I</h6><h4>Perasaan</h4>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="d-block w-100">
-                            <h4>ii. Tindakan / Idea </h4>
+                            <h6>Jilid II</h6><h4>Tindakan / Idea</h4>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="d-block w-100">
-                            <h4>iii. Matlamat</h4>
+                            <h6>Jilid III</h6><h4>Matlamat</h4>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="d-block w-100">
-                            <h4>iv. Demografi</h4>
+                            <h6>Jilid IV</h6><h4>Lain-lain</h4>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="d-block w-100">
-                            <h4>v. Lain-lain </h4>
+                            <h6>Jilid V</h6><h4>Demografi</h4>
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
             <!-- infinite scroll -->
             <div class="content-1">
                 <div class="main-circumstance">
-                    <span style="font-size: small;">Pilih sekurang-kurangnya satu maklumat latar belakang anda:</span>
+                    <span style="font-size: small;">Pilih suara hati anda:</span>
                 </div>
                 <br>
                 <div class="circumstances">
@@ -134,7 +134,7 @@
                 <br>
                 <h5 style="text-align: center">64</h5>
                 <span style="text-align: center"><a style="color: black; text-decoration: underline;"
-                        href="google.com">luahan serupa
+                        href="google.com">Kad Cerita 
                         dijumpai</a></span>
                 <br><br>
                 <hr style="margin-left: 6%; margin-right:6%; background-color: rgb(0, 0, 0);">
@@ -149,6 +149,7 @@
         <br>
         <div class="main-circumstance">
             <img style="height: 30px; width: 30px;" th:src="@{/icons/typewriter.svg}" alt="new tab" />
+            <!-- <img style="height: 40px; width: 40px;" th:src="@{/icons/ai.svg}" alt="new tab" /> -->
         </div>
         <br>
         <div class="main-circumstance">
@@ -231,7 +232,7 @@
             const container3B = document.getElementById('container3B');
 
             // Fetch data
-            const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=demographic");
+            const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=emotion");
 
             // Check if data is available
             if (fetchedData) {

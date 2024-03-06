@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #faf3cd;
+  background-color: #f1efe3;
   overflow-x: hidden;
   ;
 }
@@ -24,7 +24,7 @@ body {
 }
 
 .header {
-  background-color: #faf3cd
+  background-color: #f1efe3
  !important;
   border-bottom: 1px solid black !important;
 }
@@ -222,7 +222,7 @@ body {
   padding-right: 6%;
   text-align: left;
   /* min-height: 100vh; */
-  background: #faf3cd
+  background: #f1efe3
 ;
   flex-direction: column;
 }
@@ -233,7 +233,7 @@ body {
   align-items: center;
   text-align: center;
   /* min-height: 100vh; */
-  background: #faf3cd
+  background: #f1efe3
 ;
   flex-direction: column;
 }
@@ -398,7 +398,7 @@ body {
 }
 
 .scroll div span:hover {
-  background: #fcff5c;
+  background: #fef0d3;
   cursor: pointer;
 }
 
@@ -443,9 +443,9 @@ body {
     right: 0;
     bottom: 0;
     width: 0;
-    background: #faf3cd
+    background: #f1efe3
 ;
-    border-left: 4px solid #faf3cd
+    border-left: 4px solid #f1efe3
 ;
 
     -webkit-animation-name: typing, blinking;
@@ -463,7 +463,7 @@ body {
 
 @-webkit-keyframes blinking {
   0%   { border-color: transparent; }
-  50% { border-color: #faf3cd
+  50% { border-color: #f1efe3
 ; }
   100% { border-color: transparent; }
 }
@@ -499,7 +499,7 @@ body {
 
 
 .bottom-div {
-  background-color: #faf3cd
+  background-color: #f1efe3
 ;
   padding: 0px;
   text-align: center;
