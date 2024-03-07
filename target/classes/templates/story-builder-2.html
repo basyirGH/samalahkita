@@ -76,7 +76,7 @@
                     <div class="carousel-item">
                         <div class="d-block w-100">
                             <h6>Jilid II</h6>
-                            <h4>Tindakan / Idea</h4>
+                            <h4>Tindakan</h4>
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -133,34 +133,35 @@
                 <div class="row height d-flex justify-content-center align-items-center">
                     <div class="form">
                         <i class="fa fa-search"></i>
-                        <input type="text" class="form-control form-input" id="searchCircumstanceInput" placeholder="Carian">
+                        <input type="text" class="form-control form-input" id="searchCircumstanceInput"
+                            placeholder="Carian">
                     </div>
                 </div>
                 <br>
-                <!-- <div class="story-builder-start-area">
-                    <a class="prev-carousel" role="button" data-slide="prev" href="#carouselExample">
-                        <div id="cancelButton" class="white-button"><span><i class="fas fa-chevron-left"></i></span>
-                        </div>
-                    </a>
-                    <a class="next-carousel" role="button" data-slide="next" href="#carouselExample">
-                        <div id="nextButton" class="white-button"><span><i class="fas fa-chevron-right"></i></span>
-                        </div>
-                    </a>
-                </div> -->
-
                 <br>
                 <h5 style="text-align: center">64</h5>
                 <span style="text-align: center"><a style="color: black; text-decoration: underline;"
                         href="google.com">Kad Cerita
                         dijumpai</a></span>
                 <br><br>
+                <div class="main-circumstance">
+                    <span style="font-size: small;">Anda boleh langkau semua Jilid kecuali Demografi.</span>
+                </div>
+                <br>
                 <hr style="margin-left: 6%; margin-right:6%; background-color: rgb(0, 0, 0);">
+                <br>
                 <div class="story-builder-script">
                     <div id="container">
                         <div id="text"></div>
                     </div>
+                    <br>
+                    <div id="sideCircumstances">
+                    </div>
                 </div>
-                
+                <!-- <div class="story-builder-script">
+                   
+                </div> -->
+
 
             </div>
         </div>
@@ -176,6 +177,8 @@
 
         // Initialize the stack
         var sentenceStack = [];
+
+        var mainAndSideCircumstances = new Map();
 
         // Function to append text to the paragraph and update the stack with typewriter effect
         function appendToTextWithTypewriter(text) {
@@ -211,113 +214,19 @@
             });
         }
 
-        // // Function to undo the last sentence added
-        // function undo() {
-        //     var container = document.getElementById('text');
-
-        //     if (sentenceStack.length > 0) {
-        //         // Pop the last sentence from the stack
-        //         var lastSentence = sentenceStack.pop();
-
-        //         // Remove the last sentence from the paragraph with typewriter effect
-        //         eraseTextWithTypewriter(container, lastSentence);
-        //     }
-        // }
-
-        // Function to erase text with typewriter effect
-        // function eraseTextWithTypewriter(container, text) {
-        //     var characters = text.split('');
-        //     var currentContent = container.innerHTML;
-
-        //     characters.forEach(function (_, index) {
-        //         setTimeout(function () {
-        //             container.innerHTML = currentContent.slice(0, -characters.length + index);
-        //             // Scroll to the bottom on each character removed
-        //             container.scrollTop = container.scrollHeight;
-        //         }, index * 50); // Adjust the typing speed as needed
-        //     });
-        // }
-
-
-
-
-        // Function to append text to the paragraph and update the stack
-        // function appendToText(text) {
-        //     var container = document.getElementById('text');
-
-        //     // Split the text into sentences and push each sentence to the stack
-        //     var sentences = text.split('.');
-        //     sentences.forEach(function (sentence) {
-        //         if (sentence.trim() !== '') {
-        //             sentenceStack.push(sentence + '.');
-        //         }
-        //     });
-
-        //     // Append the text to the paragraph
-        //     container.innerHTML += text;
-
-        //     // Scroll to the bottom after appending the text
-        //     container.scrollTop = container.scrollHeight;
-        // }
-
-        // function appendToText(text) {
-        //     var container = document.getElementById('text');
-        //     var characters = text.split('');
-
-        //     characters.forEach(function (char, index) {
-        //         setTimeout(function () {
-        //             container.innerHTML += char;
-        //             // Scroll to the bottom on each character added
-        //             container.scrollTop = container.scrollHeight;
-        //         }, index * 50); // Adjust the typing speed as needed
-        //     });
-        // }
-
-
-        // Function to undo the last sentence added
-        // function undo() {
-        //     var container = document.getElementById('text');
-
-        //     if (sentenceStack.length > 0) {
-        //         // Pop the last sentence from the stack
-        //         var lastSentence = sentenceStack.pop();
-
-        //         // Remove the last sentence from the paragraph
-        //         container.innerHTML = container.innerHTML.slice(0, -lastSentence.length - 2);
-
-        //         // Scroll to the bottom after removing the sentence
-        //         container.scrollTop = container.scrollHeight;
-        //     }
-        // }
-
-        // document.getElementById('undoButton').addEventListener('click', function () {
-        //     undo();
-        // });
-
         //const circumstancesInScriptStack = new Stack();
 
         document.addEventListener("DOMContentLoaded", function () {
 
-            var mainCircumstance = /*[[${circumstanceName}]]*/ "";
-            appendToTextWithTypewriter(mainCircumstance + ". ");
+            var mainCircumstanceName = /*[[${circumstanceName}]]*/ "";
+            var mainCircumstanceId = /*[[${circumstanceId}]]*/ "";
+            appendToTextWithTypewriter(mainCircumstanceName + ". ");
+
+            mainAndSideCircumstances.set(mainCircumstanceId, mainCircumstanceName);
 
         });
 
-        function addNewDiv() {
-            // Create a new div element
-            var newDiv = document.createElement('div');
 
-            // Add a class to the new div for styling
-            newDiv.className = 'main-circumstance';
-            var newSpan = document.createElement('span');
-            newSpan.textContent = "test";
-            newDiv.appendChild(newSpan);
-
-            // Append the new div as a child to the parent div
-            document.getElementById('sideCircumstances').appendChild(newDiv);
-
-            setInterval(addNewDiv, 1000);
-        }
 
         // infinite scroll
         // Call the function to generate and populate <span> elements
@@ -348,7 +257,7 @@
             const container3B = document.getElementById('container3B');
 
             // Fetch data
-            const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=emotion");
+            const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=goal");
 
             // Check if data is available
             if (fetchedData) {
@@ -396,13 +305,35 @@
 
                 // Iterate through the collection and add event listener to each element
                 for (var i = 0; i < circumstanceElements.length; i++) {
-                    circumstanceElements[i].addEventListener('click', function (event) {
-                        // Your click event handling code here
-                        //appendToTextWithTypewriter(this.textContent + ". ");
-                        window.location.href = "http://localhost:5000/story-card    ";
-                    });
+                    (function (index) {
+                        circumstanceElements[index].addEventListener('click', function (event) {
+                            addNewDiv(circumstanceElements[index]);
+                        });
+                    })(i);
                 }
             }
+        }
+
+        function addNewDiv(sideCircumstance) {
+            // Create a new div element
+            var newDiv = document.createElement('div');
+
+            // Add a class to the new div for styling
+            newDiv.className = 'side-circumstance';
+            var newSpan = document.createElement('span');
+            newSpan.textContent = sideCircumstance.textContent;
+            newDiv.appendChild(newSpan);
+
+            // Append the new div as a child to the parent div
+            document.getElementById('sideCircumstances').appendChild(newDiv);
+
+            newDiv.addEventListener('click', function () {
+                // Remove the div from its parent
+                newDiv.parentNode.removeChild(newDiv);
+            });
+
+            mainAndSideCircumstances.set(sideCircumstance.id, sideCircumstance.textContent);
+            //console.log(mainAndSideCircumstances);
         }
 
         function shuffleArray(array) {
@@ -472,6 +403,18 @@
                 inputElement.focus();
             });
         }
+
+        // currentChapter = 1;
+        // map currentChapter => content
+        // var content = new Map()
+        // content = {
+        //     "chapter": str array,
+        //     "instruction": str array,
+        //     "circumstances": obj array,
+        //     "searchResult": obj array,
+        // }
+        //if currentChapter == 1, chapter = arr[1], arr[1], objarr[1]
+
 
     </script>
 

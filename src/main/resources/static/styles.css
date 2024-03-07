@@ -61,46 +61,15 @@ body {
 }
 
 .side-circumstance {
-  font-size: small;
   display: inline-flex;
   margin: 10px;
-  letter-spacing: 0.1em;
-  background: #ffffff00;
+  /* letter-spacing: 0.1em; */
+  background: #ffffff;
   color: #030000;
-  padding: 0px 0px;
-  border-radius: 45px;
-  border: 1px solid rgba(0, 0, 0, 0);
-  position: relative;
-  /* Added positioning for the pseudo-element */
-}
-
-.left-quote {
-  font-size: medium;
-  display: inline-flex;
-  margin: 10px;
-  letter-spacing: 0.1em;
-  background: #ffffff00;
-  color: #030000;
-  padding: 0px 0px;
-  border-radius: 45px;
-  border: 1px solid rgba(0, 0, 0, 0);
-  position: relative;
-  /* Added positioning for the pseudo-element */
-}
-
-.right-quote {
-  font-size: medium;
-  text-align: right;
-  display: inline-flex;
-  margin: 10px;
-  letter-spacing: 0.1em;
-  background: #ffffff00;
-  color: #030000;
-  padding: 0px 0px;
-  border-radius: 45px;
-  border: 1px solid rgba(0, 0, 0, 0);
-  position: relative;
-  /* Added positioning for the pseudo-element */
+  padding: 10px 25px;
+  border-radius: 25px;
+  border-color: rgb(255, 255, 255);
+  transition: 0.5s;
 }
 
 .center-button-area {
@@ -125,7 +94,7 @@ body {
   /* Added positioning for the pseudo-element */
 }
 
-.main-circumstance {
+.main-circumstance{
   font-size: medium;
   display: inline-flex;
   margin: 10px;
@@ -542,7 +511,7 @@ body {
   align-items: center;
   justify-content: center;
   height: auto;
-  text-align: justify;
+  text-align: center;
   overflow-y: auto; /* Enable vertical scroll for convenience on smaller screens */
 }
 
