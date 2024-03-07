@@ -24,8 +24,7 @@ body {
 }
 
 .header {
-  background-color: #f1efe3
- !important;
+  background-color: #f1efe3 !important;
   border-bottom: 1px solid black !important;
 }
 
@@ -94,7 +93,7 @@ body {
   /* Added positioning for the pseudo-element */
 }
 
-.main-circumstance{
+.main-circumstance {
   font-size: medium;
   display: inline-flex;
   margin: 10px;
@@ -191,8 +190,7 @@ body {
   padding-right: 6%;
   text-align: left;
   /* min-height: 100vh; */
-  background: #f1efe3
-;
+  background: #f1efe3;
   flex-direction: column;
 }
 
@@ -202,8 +200,7 @@ body {
   align-items: center;
   text-align: center;
   /* min-height: 100vh; */
-  background: #f1efe3
-;
+  background: #f1efe3;
   flex-direction: column;
 }
 
@@ -324,14 +321,18 @@ body {
 
 .scroll div {
   white-space: nowrap;
+  --time: 1000s;
   animation: scroll var(--time) linear infinite;
   animation-delay: calc(var(--time)*-1);
+  /* animation-delay: 50s;  */
 
 }
 
 .scroll div:nth-child(2) {
+  --time: 1000s;
   animation: scroll2 var(--time) linear infinite;
   animation-delay: calc(var(--time)/-2);
+  /* animation-delay: 50s; */
 }
 
 @keyframes scroll {
@@ -381,16 +382,21 @@ body {
   max-width: 100px;
   scale: 0.8;
 }
+
 .wrapper {
   height: auto;
   /*This part is important for centering*/
   display: grid;
   place-items: center;
 }
+
 * {
-  -webkit-box-sizing: border-box; /* Android ≤ 2.3, iOS ≤ 4 */
-     -moz-box-sizing: border-box; /* Firefox 1+ */
-          box-sizing: border-box; /* Chrome, IE 8+, Opera, Safari 5.1 */
+  -webkit-box-sizing: border-box;
+  /* Android ≤ 2.3, iOS ≤ 4 */
+  -moz-box-sizing: border-box;
+  /* Firefox 1+ */
+  box-sizing: border-box;
+  /* Chrome, IE 8+, Opera, Safari 5.1 */
 }
 
 
@@ -399,42 +405,52 @@ body {
 
 
 .message {
-    position: relative;
-    float: left;
-    margin: 0;
-    /* font-size: 2rem; */
-    letter-spacing: 0px;
+  position: relative;
+  float: left;
+  margin: 0;
+  /* font-size: 2rem; */
+  letter-spacing: 0px;
 }
 
 .message span {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 0;
-    background: #f1efe3
-;
-    border-left: 4px solid #f1efe3
-;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  background: #f1efe3;
+  border-left: 4px solid #f1efe3;
 
-    -webkit-animation-name: typing, blinking;
-    -webkit-animation-duration: 5s, 1s;
-    -webkit-animation-iteration-count: 1, infinite;
-    -webkit-animation-timing-function: steps(21,end), steps(1,end);
+  -webkit-animation-name: typing, blinking;
+  -webkit-animation-duration: 5s, 1s;
+  -webkit-animation-iteration-count: 1, infinite;
+  -webkit-animation-timing-function: steps(21, end), steps(1, end);
 
 
 }
 
 @-webkit-keyframes typing {
-  0%   { width: 100%; }
-  100% { width: 0; }
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+  }
 }
 
 @-webkit-keyframes blinking {
-  0%   { border-color: transparent; }
-  50% { border-color: #f1efe3
-; }
-  100% { border-color: transparent; }
+  0% {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: #f1efe3;
+  }
+
+  100% {
+    border-color: transparent;
+  }
 }
 
 /* Custom CSS for black arrows */
@@ -466,37 +482,42 @@ body {
   text-decoration: none;
 }
 
-    /* Additional styling for the buttons */
-    .prev-carousel,
-    .next-carousel {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1;
-        /* padding: 15px 30px; */
-        color: rgb(0, 0, 0); /* Adjust the color as needed */
-    }
+.carousel-item {
+  transition: transform 0s ease-in-out;
+}
 
-    .prev-carousel {
-        left: 6%;
-    }
+/* Additional styling for the buttons */
+.prev-carousel,
+.next-carousel {
+  position: absolute;
+  top: 50%;
+  /* transform: translateY(-50%); */
+  z-index: 1;
+  /* padding: 15px 30px; */
+  color: rgb(0, 0, 0);
+  /* Adjust the color as needed */
+}
 
-    .next-carousel {
-        right: 6%;
-    }
+.prev-carousel {
+  left: 6%;
+}
 
-    #cancelButton,
-    #nextButton {
-        background-color: rgba(255, 255, 255, 0); /* Adjust the background color as needed */
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+.next-carousel {
+  right: 6%;
+}
+
+#cancelButton,
+#nextButton {
+  background-color: rgba(255, 255, 255, 0);
+  /* Adjust the background color as needed */
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 
 .bottom-div {
-  background-color: #f1efe3
-;
+  background-color: #f1efe3;
   padding: 0px;
   text-align: center;
   position: relative;
@@ -505,19 +526,21 @@ body {
 }
 
 #container {
-  padding-left:6%;
+  padding-left: 6%;
   padding-right: 6%;
   display: flex;
   align-items: center;
   justify-content: center;
   height: auto;
   text-align: center;
-  overflow-y: auto; /* Enable vertical scroll for convenience on smaller screens */
+  overflow-y: auto;
+  /* Enable vertical scroll for convenience on smaller screens */
 }
 
 #text {
   display: inline-block;
-  white-space: pre-wrap; /* Allow line breaks */
+  white-space: pre-wrap;
+  /* Allow line breaks */
   color: black;
 }
 
