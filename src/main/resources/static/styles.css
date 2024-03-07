@@ -116,8 +116,8 @@ body {
   display: inline-flex;
   margin: 5px;
   letter-spacing: 0.1em;
-  background: #ffffff;
-  color: #030000;
+  background: #ffffff00;
+  /* color: #030000; */
   padding: 10px 25px;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0);
@@ -505,7 +505,7 @@ body {
         transform: translateY(-50%);
         z-index: 1;
         /* padding: 15px 30px; */
-        color: white; /* Adjust the color as needed */
+        color: rgb(0, 0, 0); /* Adjust the color as needed */
     }
 
     .prev-carousel {
@@ -518,7 +518,7 @@ body {
 
     #cancelButton,
     #nextButton {
-        background-color: white; /* Adjust the background color as needed */
+        background-color: rgba(255, 255, 255, 0); /* Adjust the background color as needed */
         padding: 10px;
         border-radius: 5px;
         cursor: pointer;

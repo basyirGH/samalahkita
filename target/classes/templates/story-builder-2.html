@@ -52,12 +52,7 @@
         <div class="content-2-story-builder">
             <br><br>
             <!-- <hr style="margin-left: 6%; margin-right:6%; background-color: rgb(0, 0, 0);"> -->
-            <div class="story-builder-script">
-                <div id="container">
-                    <div id="text"></div>
-                </div>
-            </div>
-            <hr style="margin-left: 6%; margin-right:6%; background-color: rgb(0, 0, 0);">
+
             <!-- carousel -->
             <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="false">
                 <!-- Button on the left -->
@@ -138,7 +133,7 @@
                 <div class="row height d-flex justify-content-center align-items-center">
                     <div class="form">
                         <i class="fa fa-search"></i>
-                        <input type="text" class="form-control form-input" id="searchCircumstanceInput">
+                        <input type="text" class="form-control form-input" id="searchCircumstanceInput" placeholder="Carian">
                     </div>
                 </div>
                 <br>
@@ -159,6 +154,13 @@
                         href="google.com">Kad Cerita
                         dijumpai</a></span>
                 <br><br>
+                <hr style="margin-left: 6%; margin-right:6%; background-color: rgb(0, 0, 0);">
+                <div class="story-builder-script">
+                    <div id="container">
+                        <div id="text"></div>
+                    </div>
+                </div>
+                
 
             </div>
         </div>
@@ -194,7 +196,7 @@
             // Scroll to the bottom after appending the text
             container.scrollTop = container.scrollHeight;
 
-            //console.log(sentenceStack.entries);
+            //console.log(sentenceStack.entrF4C430ies);
         }
 
         // Function to display text with typewriter effect
@@ -321,7 +323,7 @@
         // Call the function to generate and populate <span> elements
         generateSpans();
 
-        generateAnimatedSearchPlaceholders();
+        //generateAnimatedSearchPlaceholders();
 
         clickSearch();
 
@@ -397,7 +399,7 @@
                     circumstanceElements[i].addEventListener('click', function (event) {
                         // Your click event handling code here
                         //appendToTextWithTypewriter(this.textContent + ". ");
-
+                        window.location.href = "http://localhost:5000/story-card    ";
                     });
                 }
             }

@@ -31,4 +31,12 @@ public class StoryCardController {
         return mav;
     }
 
+    @GetMapping("/story-card")
+    public ModelAndView getStoryCardView() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("story-card");
+        //mav.addObject("circumstanceId", circumstanceId);
+        return mav;
+    }
+
 }
