@@ -73,22 +73,30 @@
             </div>
         </div>
         <br><br>
+        <div class="list-group">
+            <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+            <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+            <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+        </div>
         <div class="row height d-flex justify-content-center align-items-center">
             <div class="form">
                 <i class="fa fa-search"></i>
                 <input type="text" class="form-control form-input" id="searchCircumstanceInput">
+
             </div>
         </div>
         <br>
         <div class="container mt-2">
             <p class="intro text-center mx-3">
                 <!-- Adjust the mx-3 value for the desired left and right margin -->
-                Anda tidak keseorangan, luahkan segalanya di sini. <br> Tiada pendaftaran diperlukan dan 100% data adalah 'anonymous'.
+                Anda tidak keseorangan, luahkan segalanya di sini. <br> Tiada pendaftaran diperlukan dan 100% data
+                adalah 'anonymous'.
                 <br>
             </p><br>
-            <p>#SamalahKita ialah satu tempat untuk berkongsi persamaan dan mencari kisah atau pendapat yang serupa. <br><a
-                    style="color: black; text-decoration: underline;" href="google.com">Kenapa laman web ini wujud? <img
-                        style="height: 18px; width: 18px;" th:src="@{/icons/new_tab.svg}" alt="new tab" /></a></p>
+            <p>#SamalahKita ialah satu tempat untuk berkongsi persamaan dan mencari kisah atau pendapat yang serupa.
+                <br><a style="color: black; text-decoration: underline;" href="google.com">Kenapa laman web ini wujud?
+                    <img style="height: 18px; width: 18px;" th:src="@{/icons/new_tab.svg}" alt="new tab" /></a>
+            </p>
             <br><br><br>
         </div>
     </div>
@@ -297,6 +305,51 @@
         document.addEventListener('DOMContentLoaded', function () {
             inputElement.focus();
         });
+    }
+
+    document.addEventListener("DOMContentLoaded", async function () {
+        var fetchedData = await sendGetRequest("http://localhost:5000/circumstance-search-main?mainSearchTerm=kucing");
+        console.log(fetchedData);
+    });
+
+    let typingTimer;
+    const doneTypingInterval = 500; // 1 second delay
+
+    const searchInput = document.getElementById('searchCircumstanceInput');
+    const searchResultsContainer = document.getElementById('searchResult');
+
+    searchInput.addEventListener('input', function () {
+        clearTimeout(typingTimer);
+        if (searchInput.value) {
+            typingTimer = setTimeout(function () {
+                // Call your search function here
+                performSearch(searchInput.value);
+            }, doneTypingInterval);
+        } else {
+            // Clear the search results if the input is empty
+            searchResultsContainer.style.display = 'none';
+        }
+    });
+
+    function performSearch(searchTerm) {
+        // Perform your search logic and update the results container
+        // For demonstration purposes, a simple example is shown below:
+        const searchResults = [
+            "Result 1",
+            "Result 2",
+            "Result 3"
+        ];
+
+        // Update the search results container
+        searchResultsContainer.innerHTML = '';
+        searchResults.forEach(result => {
+            const resultElement = document.createElement('div');
+            resultElement.textContent = result;
+            searchResultsContainer.appendChild(resultElement);
+        });
+
+        // Show the search results container
+        searchResultsContainer.style.display = 'block';
     }
 </script>
 

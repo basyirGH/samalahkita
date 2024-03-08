@@ -3,16 +3,18 @@ package com.inmyshoes.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.inmyshoes.model.Circumstance;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.List;
 
 public interface CircumstanceRepository extends JpaRepository<Circumstance, Long> {
-
-    // @Query(value = "SELECT * FROM circumstance WHERE name = ?1", nativeQuery = true)
-    // Circumstance getCircumstanceByName(String circumstanceName);
 
     Circumstance findByName(String circumstanceName);
 
     List<Circumstance> findByLevel(String level);
 
     List<Circumstance> findByCategory(String category);
+
+    List<Circumstance> findByNameContainingIgnoreCaseAndCategoryEquals(String searchTerm, String category);
 }

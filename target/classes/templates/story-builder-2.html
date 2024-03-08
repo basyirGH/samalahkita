@@ -164,7 +164,19 @@
         // Initialize the stack
         var sentenceStack = [];
 
-        var mainAndSideCircumstances = new Map();
+        // Initialize a Map to store the entries
+        let mainAndSideCircumstancesMap = new Map();
+
+        // Function to add entries to the map
+        function addEntry(key, text, category) {
+            // Check if the key already exists in the map
+            if (!mainAndSideCircumstancesMap.has(key)) {
+                mainAndSideCircumstancesMap.set(key, new Map());
+            }
+
+            // Add the entry to the inner Map with the specified category
+            mainAndSideCircumstancesMap.get(key).set(text, category);
+        }
 
         // Function to append text to the paragraph and update the stack with typewriter effect
         function appendToTextWithTypewriter(text) {
@@ -208,7 +220,8 @@
             var mainCircumstanceId = /*[[${circumstanceId}]]*/ "";
             appendToTextWithTypewriter(mainCircumstanceName + ". ");
 
-            mainAndSideCircumstances.set(mainCircumstanceId, mainCircumstanceName);
+            addEntry(mainCircumstanceId, mainCircumstanceName, "main");
+            console.log(mainAndSideCircumstancesMap);
 
         });
 
@@ -267,6 +280,7 @@
                     span.textContent = fetchedData[i].name;
                     span.classList.add('circumstance');
                     span.setAttribute('id', fetchedData[i].id);
+                    span.dataset.category = fetchedData[i].category;
 
                     // Append the <span> to the container
                     container1A.appendChild(span.cloneNode(true));
@@ -279,6 +293,7 @@
                     span.textContent = fetchedData[i].name;
                     span.classList.add('circumstance');
                     span.setAttribute('id', fetchedData[i].id);
+                    span.dataset.category = fetchedData[i].category;
 
                     // Append the <span> to the container
                     container2A.appendChild(span.cloneNode(true));
@@ -291,6 +306,7 @@
                     span.textContent = fetchedData[i].name;
                     span.classList.add('circumstance');
                     span.setAttribute('id', fetchedData[i].id);
+                    span.dataset.category = fetchedData[i].category;
 
                     // Append the <span> to the container
                     container3A.appendChild(span.cloneNode(true));
@@ -319,6 +335,7 @@
             newDiv.id = sideCircumstance.id;
             var newSpan = document.createElement('span');
             newSpan.textContent = sideCircumstance.textContent;
+            newSpan.dataset.category = sideCircumstance.dataset.category;
             newDiv.appendChild(newSpan);
 
             // Append the new div as a child to the parent div
@@ -327,12 +344,36 @@
             newDiv.addEventListener('click', function () {
                 // Remove the div from its parent
                 newDiv.parentNode.removeChild(newDiv);
-                mainAndSideCircumstances.delete(newDiv.id);
+                deleteEntryById(newDiv.id);
+
             });
 
-            mainAndSideCircumstances.set(sideCircumstance.id, sideCircumstance.textContent);
-            console.log(mainAndSideCircumstances);
+            addEntry(sideCircumstance.id, sideCircumstance.textContent, newSpan.dataset.category)
+            console.log(mainAndSideCircumstancesMap);
         }
+
+        // Function to delete an entry by key
+        function deleteEntryById(key) {
+            if (mainAndSideCircumstancesMap.has(key)) {
+                mainAndSideCircumstancesMap.delete(key);
+                console.log(`Entry with key ${key} deleted successfully.`);
+            } else {
+                console.log(`Key ${key} not found.`);
+            }
+        }
+
+        // function removeEntryById(id) {
+        //     // Check if the ID exists in the map
+        //     if (mainAndSideCircumstancesMap[id]) {
+        //         // Remove the entry with the specified ID
+        //         delete mainAndSideCircumstancesMap[id];
+        //         console.log(`Entry with ID ${id} removed successfully.`);
+        //     } else {
+        //         console.log(`Entry with ID ${id} not found.`);
+        //     }
+        // }
+
+
 
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
@@ -402,17 +443,6 @@
             });
         }
 
-        // currentChapter = 1;
-        // map currentChapter => content
-        // var content = new Map()
-        // content = {
-        //     "chapter": str array,
-        //     "instruction": str array,
-        //     "circumstances": obj array,
-        //     "searchResult": obj array,
-        // }
-        //if currentChapter == 1, chapter = arr[1], arr[1], objarr[1]
-
         async function getFeelings() {
             const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=emotion");
             return fetchedData;
@@ -437,43 +467,6 @@
             const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=demographic");
             return fetchedData;
         }
-
-        // var feelings = new Map();
-        // feelings.set("chapter", "1");
-        // feelings.set("instruction", "Pilih suara hati anda:");
-        // feelings.set("circumstances", "");
-        // feelings.set("searchResult", "");
-
-        // var actions = new Map();
-        // actions.set("chapter", "2");
-        // actions.set("instruction", "Pilih apa yang dilakukan kerana perasaan anda:");
-        // actions.set("circumstances", "");
-        // actions.set("searchResult", "");
-
-        // var goals = new Map();
-        // goals.set("chapter", "3");
-        // goals.set("instruction", "Pilih apa yang nak dicapai dengan luahan di atas:");
-        // goals.set("circumstances", "");
-        // goals.set("searchResult", "");
-
-        // var others = new Map();
-        // others.set("chapter", "4");
-        // others.set("instruction", "Pilih situasi lain yang mungkin berkaitan:");
-        // others.set("circumstances", "");
-        // others.set("searchResult", "");
-
-        // var demographies = new Map();
-        // demographies.set("chapter", "5");
-        // demographies.set("instruction", "Pilih sekurang-kurangnya satu maklumat diri anda:");
-        // demographies.set("circumstances", "");
-        // demographies.set("searchResult", "");
-
-        // var contentAndChapter = new Map();
-        // contentAndChapter.set(1, feelings);
-        // contentAndChapter.set(2, actions);
-        // contentAndChapter.set(3, goals);
-        // contentAndChapter.set(4, others);
-        // contentAndChapter.set(5, demographies);
 
         // Initialize the initial value and total number of values
         var currentChapter = 1;
@@ -510,7 +503,7 @@
                     instructionElement.textContent = "Pilih apa yang dilakukan disebabkan perasaan anda:"
                 } else if (currentChapter == 3) {
                     circumstanceData = await getGoals();
-                    instructionElement.textContent = "Pilih apa yang nak dicapai dengan luahan di atas:"
+                    instructionElement.textContent = "Pilih apa yang nak dicapai:"
                 } else if (currentChapter == 4) {
                     circumstanceData = await getOthers();
                     instructionElement.textContent = "Pilih situasi lain yang mungkin berkaitan:"

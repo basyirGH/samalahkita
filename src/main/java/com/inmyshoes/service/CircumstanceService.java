@@ -49,6 +49,10 @@ public class CircumstanceService {
         return circumstanceRepository.findByCategory(category);
     }
 
+    public List<Circumstance> getBySearchTerm(String searchTerm, String category) {
+        return circumstanceRepository.findByNameContainingIgnoreCaseAndCategoryEquals(searchTerm, category);
+    }
+
 
 
     
