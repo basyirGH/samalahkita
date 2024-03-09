@@ -28,7 +28,7 @@
 
     <!-- header -->
     <header class="header navbar navbar-expand-lg navbar-light bg-light">
-        <a class="header-title navbar-brand" href="#">SamalahKita</a>
+        <a class="header-title navbar-brand" href="#">SamaLah.</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,9 +43,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Hubungi Kami</a>
                 </li>
-                <li>
+                <!-- <li>
                     <img style="height: 30px; width: 30px" th:src="@{/icons/hug.svg}" alt="hugging" />
-                </li>
+                </li> -->
             </ul>
         </div>
     </header>
@@ -73,27 +73,33 @@
             </div>
         </div>
         <br><br>
-        <div class="list-group">
+        <!-- <div class="list-group">
             <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
             <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
             <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+        </div> -->
+
+        <div id="searchResultDiv">
+            <div id="searchResultChildren">
+            </div>
+
         </div>
-        <div class="row height d-flex justify-content-center align-items-center">
+        <div id="searchInputDiv" class="row height d-flex justify-content-center align-items-center">
             <div class="form">
                 <i class="fa fa-search"></i>
                 <input type="text" class="form-control form-input" id="searchCircumstanceInput">
-
             </div>
         </div>
+
         <br>
-        <div class="container mt-2">
+        <div style="z-index: 0" class="container mt-2">
             <p class="intro text-center mx-3">
                 <!-- Adjust the mx-3 value for the desired left and right margin -->
                 Anda tidak keseorangan, luahkan segalanya di sini. <br> Tiada pendaftaran diperlukan dan 100% data
                 adalah 'anonymous'.
                 <br>
             </p><br>
-            <p>#SamalahKita ialah satu tempat untuk berkongsi persamaan dan mencari kisah atau pendapat yang serupa.
+            <p>#Samalah ialah satu tempat untuk berkongsi persamaan dan mencari kisah atau pendapat yang serupa.
                 <br><a style="color: black; text-decoration: underline;" href="google.com">Kenapa laman web ini wujud?
                     <img style="height: 18px; width: 18px;" th:src="@{/icons/new_tab.svg}" alt="new tab" /></a>
             </p>
@@ -307,16 +313,26 @@
         });
     }
 
-    document.addEventListener("DOMContentLoaded", async function () {
-        var fetchedData = await sendGetRequest("http://localhost:5000/circumstance-search-main?mainSearchTerm=kucing");
-        console.log(fetchedData);
-    });
+    // document.addEventListener("DOMContentLoaded", async function () {
+    //     var fetchedData = await sendGetRequest("http://localhost:5000/circumstance-search-main?mainSearchTerm=kucing");
+    //     console.log(fetchedData);
+
+    //     for (let i = 1; i <= 5; i++) {
+    //         const searchResultChild = document.createElement("div");
+    //         searchResultChild.textContent = "New Element " + i;
+    //         searchResultChild.classList = "list-group-item";
+
+    //         const searchResultDiv = document.getElementById("searchResultDiv");
+    //         const searchResultChildren = document.getElementById("searchResultChildren");
+
+    //         searchResultDiv.insertBefore(searchResultChild, searchResultChildren);
+    //     }
+    // });
 
     let typingTimer;
     const doneTypingInterval = 500; // 1 second delay
 
     const searchInput = document.getElementById('searchCircumstanceInput');
-    const searchResultsContainer = document.getElementById('searchResult');
 
     searchInput.addEventListener('input', function () {
         clearTimeout(typingTimer);

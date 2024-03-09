@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+
     <!-- Font Awesome CDN for the search icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -28,7 +29,7 @@
 
     <!-- header -->
     <header class="header navbar navbar-expand-lg navbar-light bg-light">
-        <a class="header-title navbar-brand" href="#">SamalahKita</a>
+        <a class="header-title navbar-brand" href="#">SamaLah.</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,97 +48,512 @@
         </div>
     </header>
 
-    <div class="content-2-story-builder">
-        <p class="center-bottom-text">Warna biru sering dikaitkan dengan emosi sedih atau kekosongan,
-            tapi biru juga merupakan simbol perasaan tenang, tertib dan stabil.
-            <br> Pelbagai kajian telah dilakukan dengan psikologi warna dan impaknya
-            terhadap kesihatan mental. <a
-                style=" font-size: x-small; color: rgb(255, 255, 255); text-decoration: underline;"
-                href="https://www.verywellmind.com/the-color-psychology-of-blue-2795815"> Baca lebih lanjut. </a>
-        </p>
-    </div>
-
-    <div class="content-1-story-builder">
-        <br>
-        <div class="main-circumstance"><span><h2>Kami memerlukan sedikit 'clue'.</h2></span></div>
-        <br>
-        <div style="font-size: xx-small;" class="main-circumstance"><span> Setiap perjalanan ada permulaannya. Untuk
-                pengalaman
-                yang terbaik,
-                sekurang-kurangnya satu latar belakang demografik anda diperlukan, seperti <b> umur atau jantina </b>.
-                Ini bukan sahaja meningkatkan kepadanan situasi anda, malah ia membantu pencarian statistik dan memupuk
-                sifat empati antara satu
-                sama lain di SamalahKita. Segalanya tertakluk kepada perincian yang anda ingin kongsikan secara tanpa
-                nama di sini.
-                <br> Bayangkan anda bermain lego. Semakin banyak blok, semakin mudah difahami
-                binaan tersebut. </span></div>
-        <br>
-        <div class="main-circumstance"><span>Got nothing to say yet? <a
-                    style="color: black; text-decoration: underline;" href="google.com"> Baca Kad Cerita yang
-                    berkaitan.</span>
-            </a>
-        </div>
-        <hr style="height:0.5px; background-color: rgba(0, 0, 0, 0.5);">
-
-    </div>
     <div class="story-builder-start-area">
-        <div class="main-circumstance">
-            <span th:text="${circumstanceName}"></span>
+        <div class="content-2-story-builder">
+            <br>
+            <div id="container">
+                <div id="text"></div>
+            </div>
+            <hr style="margin-left: 6%; margin-right:6%; background-color: rgb(0, 0, 0);">
+            <!-- carousel -->
+            <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="false">
+                <!-- Button on the left -->
+                <a class="prev-carousel" role="button" data-slide="prev" href="#carouselExample">
+                    <div id="prevChapter" class="white-button">
+                        <span><i class="fas fa-chevron-left"></i></span>
+                    </div>
+                </a>
+                <a class="next-carousel" role="button" data-slide="next" href="#carouselExample">
+                    <div id="nextChapter" class="white-button">
+                        <span><i class="fas fa-chevron-right"></i></span>
+                    </div>
+                </a>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-block w-100">
+                            <h6>Jilid I</h6>
+                            <h4>Perasaan</h4>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-block w-100">
+                            <h6>Jilid II</h6>
+                            <h4>Tindakan</h4>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-block w-100">
+                            <h6>Jilid III</h6>
+                            <h4>Matlamat</h4>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-block w-100">
+                            <h6>Jilid IV</h6>
+                            <h4>Lain-lain</h4>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-block w-100">
+                            <h6>Jilid V</h6>
+                            <h4>Demografi</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="carouselExample" class="carousel slide" data-ride="carousel">
+            </div>
+            <!-- infinite scroll -->
+            <div class="content-1">
+                <div class="main-circumstance">
+                    <span id="instruction" style="letter-spacing: 0.0em; font-size: medium;"></span>
+                </div>
+                <br>
+                <div class="circumstances">
+                    <div class="scroll" style="">
+                        <div id="container1A"></div>
+                        <div id="container1B"></div>
+                    </div>
+                    <div class="scroll" style="">
+                        <div id="container2A"></div>
+                        <div id="container2B"></div>
+                    </div>
+                    <div class="scroll" style="">
+                        <div id="container3A"></div>
+                        <div id="container3B"></div>
+                    </div>
+                </div>
+                <br>
+                <div class="row height d-flex justify-content-center align-items-center">
+                    <div class="form">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control form-input" id="searchCircumstanceInput"
+                            placeholder="Carian">
+                    </div>
+                </div>
+                <br>
+                <div class="main-circumstance">
+                    <span style="font-size: medium; letter-spacing: 0.0em;">Untuk pengalaman yang terbaik, pilih
+                        sekurang-kurangnya satu dalam setiap Jilid.<br> Anda boleh langkau semua Jilid kecuali
+                        Demografi sebelum meneruskan.</span>
+                </div>
+                <br>
+                <div class="main-circumstance">
+                    <span style="text-align: center; margin-right: 10px;"> <a
+                            style="color: black; text-decoration: underline;" href="google.com"><span
+                                id="storyCardCounter">110</span> Kad Cerita
+                            dijumpai</a></span>
+                    <span id="storyBuilderNextButton" class="hover-link"
+                        style="text-align: center; margin-left: 10px;"><a
+                            style="color: black; text-decoration: underline;">Seterusnya</a></span>
+                </div>
+                <br>
+                <hr style="margin-left: 6%; margin-right:6%; background-color: rgb(0, 0, 0);">
+                <div class="story-builder-script">
+                    <div id="sideCircumstances">
+                    </div>
+                </div>
+            </div>
         </div>
-        <br>
-        <p style="text-align: center">❝<i> This is my story. </i>❞</p>
-        <div id="cancelButton" class="white-button"><span style="font-size: small;">Batal</span></div>
-        <div id="nextButton" style="border: 1px solid #00a2ff" class="white-button"><span
-                style="font-size: small;">Seterusnya</span></div>
         <br><br>
-        <p style="font-size: x-small; text-align: center">Dengan menekan Seterusnya, anda bersetuju dengan <a
-                style="font-size: x-small; color: black; text-decoration: underline;" href="google.com"> Terma dan
-                Syarat pengguna. </a></p>
-
     </div>
 
-    <div>
-        <br>
-
-        <div class="side-circumstances-space" id="sideCircumstances">
-
-        </div>
-        <br>
-    </div>
 
     <script th:inline="javascript">
 
-        listenToNextButtonClick();
-        listenToCancelButtonClick();
+        // Initialize the stack
+        var sentenceStack = [];
 
-        function listenToNextButtonClick() {
-            var circumstanceId = /*[[${circumstanceId}]]*/ '1';
-            document.getElementById("nextButton").addEventListener("click", function (event) {
-                window.location.href = "http://localhost:5000/story-card-builder-view-2?circumstanceId=" + circumstanceId;
+        // Initialize a Map to store the entries
+        let mainAndSideCircumstancesMap = new Map();
+
+        // Function to add entries to the map
+        function addEntry(key, text, category) {
+            // Check if the key already exists in the map
+            if (!mainAndSideCircumstancesMap.has(key)) {
+                mainAndSideCircumstancesMap.set(key, new Map());
+            }
+
+            // Add the entry to the inner Map with the specified category
+            mainAndSideCircumstancesMap.get(key).set(text, category);
+        }
+
+        // Function to append text to the paragraph and update the stack with typewriter effect
+        function appendToTextWithTypewriter(text) {
+            var container = document.getElementById('text');
+            container.style.textAlign = "center"
+
+            // Split the text into sentences and push each sentence to the stack
+            var sentences = text.split('.');
+            sentences.forEach(function (sentence) {
+                if (sentence.trim() !== '') {
+                    sentenceStack.push(sentence + '.');
+                }
+            });
+
+            // Display text with typewriter effect
+            displayTextWithTypewriter(container, text);
+
+            // Scroll to the bottom after appending the text
+            container.scrollTop = container.scrollHeight;
+
+            //console.log(sentenceStack.entrF4C430ies);
+        }
+
+        // Function to display text with typewriter effect
+        function displayTextWithTypewriter(container, text) {
+            var characters = text.split('');
+            characters.forEach(function (char, index) {
+                setTimeout(function () {
+                    container.innerHTML += char;
+                    // Scroll to the bottom on each character added
+                    container.scrollTop = container.scrollHeight;
+                }, index * 50); // Adjust the typing speed as needed
             });
         }
 
-        function listenToCancelButtonClick() {
-            document.getElementById("cancelButton").addEventListener("click", function (event) {
-                window.location.href = "http://localhost:5000";
-            });
+        //const circumstancesInScriptStack = new Stack();
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var mainCircumstanceName = /*[[${circumstanceName}]]*/ "";
+            var mainCircumstanceId = /*[[${circumstanceId}]]*/ "";
+            appendToTextWithTypewriter(mainCircumstanceName + ". ");
+
+            addEntry(mainCircumstanceId, mainCircumstanceName, "main");
+            console.log(mainAndSideCircumstancesMap);
+
+        });
+
+
+
+        // infinite scroll
+        // Call the function to generate and populate <span> elements
+        generateSpans();
+
+        //generateAnimatedSearchPlaceholders();
+
+        clickSearch();
+
+        // Function to make the GET request
+        async function sendGetRequest(endpoint) {
+            try {
+                const response = await fetch(endpoint); // Replace with your API endpoint
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
         }
 
-        function addNewDiv() {
+        // Function to generate <span> elements and populate them with data
+        async function generateSpans(fetchedData) {
+            const container1A = document.getElementById('container1A');
+            const container1B = document.getElementById('container1B');
+            const container2A = document.getElementById('container2A');
+            const container2B = document.getElementById('container2B');
+            const container3A = document.getElementById('container3A');
+            const container3B = document.getElementById('container3B');
+
+            // Check if data is available
+            if (fetchedData) {
+                shuffleArray(fetchedData);
+
+                // Function to remove all children of a given element
+                function removeAllChildren(element) {
+                    while (element.firstChild) {
+                        element.removeChild(element.firstChild);
+                    }
+                }
+
+                // Remove existing spans from each container
+                removeAllChildren(container1A);
+                removeAllChildren(container1B);
+                removeAllChildren(container2A);
+                removeAllChildren(container2B);
+                removeAllChildren(container3A);
+                removeAllChildren(container3B);
+
+                // Iterate over the data and create <span> elements
+                for (let i = 0; i < fetchedData.length; i++) {
+                    const span = document.createElement('span');
+                    span.textContent = fetchedData[i].name;
+                    span.classList.add('circumstance');
+                    span.setAttribute('id', fetchedData[i].id);
+                    span.dataset.category = fetchedData[i].category;
+
+                    // Append the <span> to the container
+                    container1A.appendChild(span.cloneNode(true));
+                    container1B.appendChild(span.cloneNode(true));
+                }
+
+                shuffleArray(fetchedData);
+                for (let i = 0; i < fetchedData.length; i++) {
+                    const span = document.createElement('span');
+                    span.textContent = fetchedData[i].name;
+                    span.classList.add('circumstance');
+                    span.setAttribute('id', fetchedData[i].id);
+                    span.dataset.category = fetchedData[i].category;
+
+                    // Append the <span> to the container
+                    container2A.appendChild(span.cloneNode(true));
+                    container2B.appendChild(span.cloneNode(true));
+                }
+
+                shuffleArray(fetchedData);
+                for (let i = 0; i < fetchedData.length; i++) {
+                    const span = document.createElement('span');
+                    span.textContent = fetchedData[i].name;
+                    span.classList.add('circumstance');
+                    span.setAttribute('id', fetchedData[i].id);
+                    span.dataset.category = fetchedData[i].category;
+
+                    // Append the <span> to the container
+                    container3A.appendChild(span.cloneNode(true));
+                    container3B.appendChild(span.cloneNode(true));
+                }
+
+                var circumstanceElements = document.getElementsByClassName('circumstance');
+
+                // Iterate through the collection and add event listener to each element
+                for (var i = 0; i < circumstanceElements.length; i++) {
+                    (function (index) {
+                        circumstanceElements[index].addEventListener('click', function (event) {
+                            addNewDiv(circumstanceElements[index]);
+                        });
+                    })(i);
+                }
+            }
+        }
+
+        function addNewDiv(sideCircumstance) {
             // Create a new div element
             var newDiv = document.createElement('div');
 
             // Add a class to the new div for styling
-            newDiv.className = 'main-circumstance';
+            newDiv.className = 'side-circumstance';
+            newDiv.id = sideCircumstance.id;
             var newSpan = document.createElement('span');
-            newSpan.textContent = "test";
+            newSpan.textContent = sideCircumstance.textContent;
+            newSpan.dataset.category = sideCircumstance.dataset.category;
             newDiv.appendChild(newSpan);
 
             // Append the new div as a child to the parent div
             document.getElementById('sideCircumstances').appendChild(newDiv);
 
-            setInterval(addNewDiv, 1000);
+            newDiv.addEventListener('click', function () {
+                // Remove the div from its parent
+                newDiv.parentNode.removeChild(newDiv);
+                deleteEntryById(newDiv.id);
+
+            });
+
+            addEntry(sideCircumstance.id, sideCircumstance.textContent, newSpan.dataset.category)
+            console.log(mainAndSideCircumstancesMap);
         }
+
+        // Function to delete an entry by key
+        function deleteEntryById(key) {
+            if (mainAndSideCircumstancesMap.has(key)) {
+                mainAndSideCircumstancesMap.delete(key);
+                console.log(`Entry with key ${key} deleted successfully.`);
+            } else {
+                console.log(`Key ${key} not found.`);
+            }
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function generateAnimatedSearchPlaceholders() {
+            const circumstanceSynonyms = [
+                "cerita",
+                "pov",
+                "isihati",
+                "deepthoughts",
+                "penghargaan",
+                "niat",
+                "citacita",
+                "commonground",
+                "sharedexperience",
+                "rasasyukur",
+                "reasontobethankful",
+                "situasi",
+                "nasib",
+                "impian",
+                "masalah",
+                "kekeliruan",
+                "pendapat",
+                "kurnian",
+                "perasaan",
+                "samalahkita",
+                "confession",
+                "luahan",
+                "someonerelatable",
+                "kejayaan",
+                "ujian",
+                "struggle",
+                "minat",
+            ];
+
+            let currentIndex = 0;
+
+            // Get the input element by its ID
+            var inputElement = document.getElementById('searchCircumstanceInput');
+
+            // Function to update the placeholder every 2 seconds
+            function updatePlaceholder() {
+                inputElement.placeholder = "Cari #" + circumstanceSynonyms[currentIndex];
+                currentIndex = (currentIndex + 1) % circumstanceSynonyms.length; // Loop through the array
+            }
+
+            // Set interval to update placeholder every 2 seconds
+            setInterval(updatePlaceholder, 2000);
+
+        }
+
+        function clickSearch() {
+            // Get the input element by its ID
+            var inputElement = document.getElementById('searchCircumstanceInput');
+
+            // Trigger click on the input element when the page loads
+            document.addEventListener('DOMContentLoaded', function () {
+                inputElement.focus();
+            });
+        }
+
+        async function getFeelings() {
+            const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=emotion");
+            return fetchedData;
+        }
+
+        async function getActions() {
+            const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=action");
+            return fetchedData;
+        }
+
+        async function getGoals() {
+            const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=goal");
+            return fetchedData;
+        }
+
+        async function getOthers() {
+            const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=main");
+            return fetchedData;
+        }
+
+        async function getDemographies() {
+            const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=demographic");
+            return fetchedData;
+        }
+
+        // Initialize the initial value and total number of values
+        var currentChapter = 1;
+        var totalChapters = 5;
+
+        document.getElementById("prevChapter").addEventListener('click', function () {
+            handleNavClick("prevChapter");
+        });
+
+        document.getElementById("nextChapter").addEventListener('click', function () {
+            handleNavClick("nextChapter");
+        });
+
+        // Function to handle clicking the right button
+        async function handleNavClick(nav) {
+
+            if (nav == "nextChapter") {
+                currentChapter = (currentChapter % totalChapters) + 1;
+            }
+            else if (nav == "prevChapter") {
+                currentChapter = (currentChapter - 1 + totalChapters) % totalChapters || totalChapters;
+            }
+
+            try {
+                //generate anew
+                var circumstanceData;
+                var instructionElement = document.getElementById("instruction");
+
+                if (currentChapter == 1) {
+                    circumstanceData = await getFeelings();
+                    instructionElement.textContent = "Suara hati anda:"
+                } else if (currentChapter == 2) {
+                    circumstanceData = await getActions();
+                    instructionElement.textContent = "Apa yang dilakukan disebabkan perasaan anda:"
+                } else if (currentChapter == 3) {
+                    circumstanceData = await getGoals();
+                    instructionElement.textContent = "Apa yang nak dicapai:"
+                } else if (currentChapter == 4) {
+                    circumstanceData = await getOthers();
+                    instructionElement.textContent = "Situasi lain yang mungkin berkaitan:"
+                } else if (currentChapter == 5) {
+                    circumstanceData = await getDemographies();
+                    instructionElement.textContent = "Maklumat diri anda:"
+                }
+
+                generateSpans(circumstanceData);
+            } catch (error) {
+                console.error('Error in DOMContentLoaded:', error);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", async function () {
+            try {
+                var feelingsData = await getFeelings(); // Resolve the Promise
+                document.getElementById("instruction").textContent = "Suara hati anda:"
+                generateSpans(feelingsData);
+            } catch (error) {
+                console.error('Error in DOMContentLoaded:', error);
+            }
+        });
+
+        // document.addEventListener("DOMContentLoaded", async function () {
+        //     var fetchedData = await sendGetRequest("http://localhost:5000/circumstance-search-main?mainSearchTerm=kucing");
+        //     console.log(fetchedData);
+        // });
+
+        // document.getElementById("storyBuilderNextButton").addEventListener("click", function (event) {
+        //     //window.location.href = "http://localhost:5000/story-card-builder-view-2";
+
+        //     // Replace the URL with the endpoint you want to send the POST request to
+        //     const apiUrl = 'http://localhost:5000/story-card-submit';
+
+        //     // Data to be sent in the request body (replace with your actual data)
+        //     //const jsonData = JSON.stringify([...mainAndSideCircumstancesMap]);
+
+        //     // Configuration for the fetch request
+        //     const fetchOptions = {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json', // Adjust the content type based on your API requirements
+        //             // Add any other headers if needed
+        //         },
+        //         body: mainAndSideCircumstancesMap // Convert data to JSON string
+        //     };
+
+        //     // Perform the fetch POST request
+        //     fetch(apiUrl, fetchOptions)
+        //         .then(response => {
+        //             if (!response.ok) {
+        //                 throw new Error(`HTTP error! Status: ${response.status}`);
+        //             }
+        //             return response.json(); // Assuming the response is in JSON format
+        //         })
+        //         .then(data => {
+        //             // Handle the successful response data
+        //             console.log('Response data:', data);
+        //         })
+        //         .catch(error => {
+        //             // Handle errors
+        //             console.error('Error:', error);
+        //         });
+
+        // })
+
     </script>
 
     <!-- Bootstrap JS and dependencies -->

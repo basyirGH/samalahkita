@@ -1,7 +1,10 @@
 package com.inmyshoes.model;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,6 +19,8 @@ import jakarta.persistence.Table;
 @Table(name="circumstance")
 public class Circumstance {
 
+    public Circumstance() {}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -29,13 +34,13 @@ public class Circumstance {
     @Column(name = "category", nullable = false, columnDefinition = "VARCHAR(255) DEFAULT 'main'")
     private String category;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
         name = "circumstance_and_story_card",
         joinColumns = @JoinColumn(name = "circumstance_id"),
         inverseJoinColumns = @JoinColumn(name = "story_card_id")
     )
-    Set<StoryCard> relatedStoryCards;
+    private Set<StoryCard> relatedStoryCards = new HashSet<>();
 
     public long getId() {
         return id;
@@ -69,6 +74,15 @@ public class Circumstance {
         this.category = category;
     }
 
+    public Set<StoryCard> getRelatedStoryCards() {
+        return relatedStoryCards;
+    }
+
+    public void setRelatedStoryCards(Set<StoryCard> relatedStoryCards) {
+        this.relatedStoryCards = relatedStoryCards;
+    }
+
+   
     
 
 

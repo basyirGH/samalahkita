@@ -56,19 +56,25 @@ body {
   border-radius: 45px;
   border: 1px solid rgba(0, 0, 0, 0);
   position: relative;
+  letter-spacing: 0.0em;
   /* Added positioning for the pseudo-element */
 }
 
 .side-circumstance {
   display: inline-flex;
   margin: 10px;
-  /* letter-spacing: 0.1em; */
-  background: #ffffff;
+  letter-spacing: 0.1em;
+  background: #ffffff00;
   color: #030000;
   padding: 10px 25px;
   border-radius: 25px;
   border-color: rgb(255, 255, 255);
   transition: 0.5s;
+}
+
+.side-circumstance:hover {
+  background: #ffffff;
+  cursor: pointer;
 }
 
 .center-button-area {
@@ -321,7 +327,7 @@ body {
 
 .scroll div {
   white-space: nowrap;
-  --time: 1000s;
+  --time: 700s;
   animation: scroll var(--time) linear infinite;
   animation-delay: calc(var(--time)*-1);
   /* animation-delay: 50s;  */
@@ -329,7 +335,7 @@ body {
 }
 
 .scroll div:nth-child(2) {
-  --time: 1000s;
+  --time: 700s;
   animation: scroll2 var(--time) linear infinite;
   animation-delay: calc(var(--time)/-2);
   /* animation-delay: 50s; */
@@ -359,16 +365,16 @@ body {
   display: inline-flex;
   margin: 10px;
   letter-spacing: 0.1em;
-  background: #ffffff;
+  background: #f1efe3;
   color: #030000;
-  padding: 15px 30px;
+  padding: 15px 20px;
   border-radius: 25px;
   border-color: rgb(255, 255, 255);
   transition: 0.5s;
 }
 
 .scroll div span:hover {
-  background: #fef0d3;
+  background: #ffffff;
   cursor: pointer;
 }
 
@@ -535,13 +541,14 @@ body {
   text-align: center;
   overflow-y: auto;
   /* Enable vertical scroll for convenience on smaller screens */
-}
+} 
 
 #text {
   display: inline-block;
   white-space: pre-wrap;
   /* Allow line breaks */
   color: black;
+  letter-spacing: 0.1em;
 }
 
 #buttons {
@@ -558,9 +565,54 @@ body {
 }
 
 .list-group-item {
-  display: block;
-  width: auto;
-  min-width: 100%; /* Set minimum width to the content width */
+  /* z-index: 2;
+  position: absolute; */
+  align-self: center;
+  display: flex;
+  width: 280px;
+  max-width: 100%; /* Set minimum width to the content width */
   box-sizing: border-box; /* Include padding and border in the width calculation */
 }
+
+#search-container {
+  /* position: relative; */
+  /* Set the z-index for the container */
+  z-index: 1;
+}
+
+
+#searchResultDiv {
+  z-index: 2;
+  position: absolute;
+  display: grid;
+  align-items: center;
+  align-self: center!important;
+  align-content: center;
+  text-align: center;
+}
+
+#searchInputDiv {
+  z-index: 1;
+}
+
+.hover-link {
+  cursor: pointer;
+}
+
+.story-card {
+  font-size: medium;
+  display: inline-flex;
+  margin: 10px;
+  letter-spacing: 0.1em;
+  background: #ffffff00;
+  color: #030000;
+  padding: 15px 30px;
+  border-radius: 15px;
+  border: 1px solid rgb(0, 0, 0);
+  position: relative;
+  /* Added positioning for the pseudo-element */
+}
+
+
+
 

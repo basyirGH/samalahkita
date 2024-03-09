@@ -1,5 +1,8 @@
 package com.inmyshoes.model;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -18,31 +21,24 @@ public class StoryCard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "age", nullable = false)
-    private String age;
-
-    @Column(name = "country", nullable = false)
-    private String country;
-
-    @Column(name = "gender", nullable = false)
-    private String gender;
-
-    @Column(name = "economicStatus", nullable = false)
-    private String economicStatus;
-
-    @Column(name = "selfDescription", nullable = false)
-    private String selfDescription;
-
-    // current state, feelings,  goals achieved, etc
-
-    @Column(name = "emotionalStatus", nullable = false)
-    private String emotionalStatus;
-
-    @Column(name = "links", nullable = false)
-    private String link;
-
     @ManyToMany(mappedBy = "relatedStoryCards")
-    Set<Circumstance> storyCircumstances;
+    private Set<Circumstance> relatedCircumstances = new HashSet<>();
 
- 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Set<Circumstance> getRelatedCircumstances() {
+        return relatedCircumstances;
+    }
+
+    public void setRelatedCircumstances(Set<Circumstance> relatedCircumstances) {
+        this.relatedCircumstances = relatedCircumstances;
+    }
+
+    
 }
