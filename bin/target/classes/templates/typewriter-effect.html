@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typewriter Animation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        #container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: justify;
+            overflow-y: auto; /* Enable vertical scroll for convenience on smaller screens */
+        }
+
+        #text {
+            display: inline-block;
+            white-space: pre-wrap; /* Allow line breaks */
+        }
+
+        #buttons {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .typewriter-button {
+            margin: 0 10px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="buttons">  
+    <button class="typewriter-button" onclick="appendToText('Hello, ');">Hello</button>
+    <button class="typewriter-button" onclick="appendToText('This is a typewriter animation ');">Typewriter</button>
+    <button class="typewriter-button" onclick="appendToText('Enjoy the show! ');">Enjoy</button>
+    <button class="typewriter-button" onclick="appendToText('Responsive design is awesome. ');">Responsive</button>
+    <button class="typewriter-button" onclick="appendToText('Thanks for trying this example. ');">Thanks</button>
+</div>
+
+<div id="container">
+    <div id="text"></div>
+</div>
+
+<script>
+    function appendToText(text) {
+        var container = document.getElementById('text');
+        var characters = text.split('');
+
+        characters.forEach(function (char, index) {
+            setTimeout(function () {
+                container.innerHTML += char;
+                // Scroll to the bottom on each character added
+                container.scrollTop = container.scrollHeight;
+            }, index * 50); // Adjust the typing speed as needed
+        });
+    }
+</script>
+
+</body>
+</html>

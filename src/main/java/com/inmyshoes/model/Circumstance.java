@@ -4,6 +4,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -34,7 +37,9 @@ public class Circumstance {
     @Column(name = "category", nullable = false, columnDefinition = "VARCHAR(255) DEFAULT 'main'")
     private String category;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    // https://stackoverflow.com/questions/43054764/spring-rest-error-failed-to-load-resource-neterr-incomplete-chunked-encoding
+    @JsonBackReference
+    @ManyToMany
     @JoinTable(
         name = "circumstance_and_story_card",
         joinColumns = @JoinColumn(name = "circumstance_id"),

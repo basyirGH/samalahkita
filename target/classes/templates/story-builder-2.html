@@ -22,14 +22,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Serif+Text:ital@0;1&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
-    <title>SamalahKita</title>
+    <title>samalahkita</title>
 </head>
 
 <body>
 
     <!-- header -->
     <header class="header navbar navbar-expand-lg navbar-light bg-light">
-        <a class="header-title navbar-brand" href="#">SamaLah.</a>
+        <a class="header-title navbar-brand" href="#">samalahkita</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,15 +48,75 @@
         </div>
     </header>
 
-    <div class="story-builder-start-area">
-        <div class="content-2-story-builder">
-            <div class="story-card">CARD HERE</div>
-        </div>
+    <br>
+    <div class="designer-container">
+        <div class="story-card"><span id="mainCircumstanceName"></span></div>
+        <!-- <div class="story-card"><span id="mainCircumstanceName"></span></div>
+        <div class="story-card"><span id="mainCircumstanceName"></span></div>
+        <div class="story-card"><span id="mainCircumstanceName"></span></div>
+        <div class="story-card"><span id="mainCircumstanceName"></span></div>
+        <div class="story-card"><span id="mainCircumstanceName"></span></div>
+        <div class="story-card"><span id="mainCircumstanceName"></span></div>
+        <div class="story-card"><span id="mainCircumstanceName"></span></div> -->
     </div>
 
 
 
     <script th:inline="javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            // Retrieve the outerMap from sessionStorage
+            let mainAndSideCircumstancesMap = sessionStorage.getItem('mainAndSideCircumstancesMap');
+            let mainCircumstanceId = sessionStorage.getItem('mainCircumstanceId');
+            console.log(mainAndSideCircumstancesMap);
+
+            // Parse the JSON string to get an object
+            let jsonObject = JSON.parse(mainAndSideCircumstancesMap);
+
+            // Convert the object to an array of key-value pairs
+            let keyValueArray = Object.entries(jsonObject);
+
+            // Create a new Map and populate it with the key-value pairs
+            let outerMap = new Map(keyValueArray);
+
+            // Now 'restoredMap' contains the Map object from sessionStorage
+            console.log(outerMap);
+
+            let emotionList = [];
+            let actionList = [];
+            let goalList = [];
+            let otherccList = [];
+            let demographicList = [];
+
+            // Iterate over outerMap entries
+            for (const [outerKey, innerObject] of outerMap) {
+
+                //skip main circumstance
+                if (outerKey == mainCircumstanceId) {
+                    document.getElementById("mainCircumstanceName").textContent = Object.keys(innerObject);
+                    continue;
+                }
+                // Check if innerObject contains the targetValue
+                if (innerObject && Object.values(innerObject).includes("emotion")) {
+                    emotionList.push(Object.keys(innerObject));
+                } else if (innerObject && Object.values(innerObject).includes("action")) {
+                    actionList.push(Object.keys(innerObject));
+                } else if (innerObject && Object.values(innerObject).includes("goal")) {
+                    goalList.push(Object.keys(innerObject));
+                } else if (innerObject && Object.values(innerObject).includes("main")) {
+                    otherccList.push(Object.keys(innerObject));
+                } else if (innerObject && Object.values(innerObject).includes("demographic")) {
+                    demographicList.push(Object.keys(innerObject));
+                }
+            }
+
+            console.log(mainCircumstanceId);
+            console.log(emotionList);
+            console.log(actionList);
+            console.log(goalList);
+            console.log(otherccList);
+            console.log(demographicList);
+
+        });
 
     </script>
 

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Font Awesome CDN for the search icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Serif+Text:ital@0;1&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <title>SamalahKita</title>
+</head>
+
+<body>
+
+    <!-- header -->
+    <header class="header navbar navbar-expand-lg navbar-light bg-light">
+        <a class="header-title navbar-brand" href="#">SamaLah.</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="header-navbar collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Keselamatan dan Privasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hubungi Kami</a>
+                </li>
+                <!-- <li>
+                    <img style="height: 30px; width: 30px" th:src="@{/icons/hug.svg}" alt="hugging" />
+                </li> -->
+            </ul>
+        </div>
+    </header>
+
+
+    <!-- infinite scroll -->
+    <div class="content-1">
+        <br>
+        <div class="circumstances">
+            <div class="scroll" style="--time:580s">
+                <div id="container1A"></div>
+                <div id="container1B"></div>
+            </div>
+            <div class="scroll" style="--time:560s">
+                <div id="container2A"></div>
+                <div id="container2B"></div>
+            </div>
+            <div class="scroll" style="--time:540s">
+                <div id="container3A"></div>
+                <div id="container3B"></div>
+            </div>
+            <div class="scroll" style="--time:600s">
+                <div id="container4A"></div>
+                <div id="container4B"></div>
+            </div>
+        </div>
+        <br><br>
+        <!-- <div class="list-group">
+            <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+            <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+            <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+        </div> -->
+
+        <div id="searchResultDiv">
+            <div id="searchResultChildren">
+            </div>
+
+        </div>
+        <div id="searchInputDiv" class="row height d-flex justify-content-center align-items-center">
+            <div class="form">
+                <i class="fa fa-search"></i>
+                <input type="text" class="form-control form-input" id="searchCircumstanceInput">
+            </div>
+        </div>
+
+        <br>
+        <div style="z-index: 0" class="container mt-2">
+            <p class="intro text-center mx-3">
+                <!-- Adjust the mx-3 value for the desired left and right margin -->
+                Anda tidak keseorangan, luahkan segalanya di sini. <br> Tiada pendaftaran diperlukan dan 100% data
+                adalah 'anonymous'.
+                <br>
+            </p><br>
+            <p>#Samalah ialah satu tempat untuk berkongsi persamaan dan mencari kisah atau pendapat yang serupa.
+                <br><a style="color: black; text-decoration: underline;" href="google.com">Kenapa laman web ini wujud?
+                    <img style="height: 18px; width: 18px;" th:src="@{/icons/new_tab.svg}" alt="new tab" /></a>
+            </p>
+            <br><br><br>
+        </div>
+    </div>
+
+    <!-- <div class="content-2">
+        <h4 class="research" href="#">Tajuk 1</h4>
+    </div>
+    <div class="content-3">
+        <h4 class="research" href="#">Tajuk 2</h4>
+    </div>
+    <div class="content-4">
+        <h4 class="research" href="#">Tajuk 3</h4>
+    </div>
+    <div class="content-5">
+        <h4 class="research" href="#">Tajuk 4</h4>
+    </div> -->
+    <!-- <div class="bottom-lines" style="height: 22px; margin-bottom: 1px;"></div>
+    <div class="bottom-lines" style="height: 20px; margin-bottom: 2px;"></div>
+    <div class="bottom-lines" style="height: 18px; margin-bottom: 4px;"></div>
+    <div class="bottom-lines" style="height: 16px; margin-bottom: 6px;"></div>
+    <div class="bottom-lines" style="height: 14px; margin-bottom: 8px;"></div>
+    <div class="bottom-lines" style="height: 12px; margin-bottom: 10px;"></div>
+    <div class="bottom-lines" style="height: 10px; margin-bottom: 12px;"></div>
+    <div class="bottom-lines" style="height: 8px; margin-bottom: 14px;"></div>
+    <div class="bottom-lines" style="height: 6px; margin-bottom: 16px;"></div>
+    <div class="bottom-lines" style="height: 4px; margin-bottom: 18px;"></div>
+    <div class="bottom-lines" style="height: 2px; margin-bottom: 20px;"></div> -->
+
+    <!-- <div class="bottom-div">
+        <div class="upper-lines" style="height: 2px; margin-bottom: 20px;"></div>
+        <div class="upper-lines" style="height: 4px; margin-bottom: 18px;"></div>
+        <div class="upper-lines" style="height: 6px; margin-bottom: 16px;"></div>
+        <div class="upper-lines" style="height: 8px; margin-bottom: 14px;"></div>
+        <div class="upper-lines" style="height: 10px; margin-bottom: 12px;"></div>
+        <div class="upper-lines" style="height: 12px; margin-bottom: 10px;"></div>
+        <div class="upper-lines" style="height: 14px; margin-bottom: 8px;"></div>
+        <div class="upper-lines" style="height: 16px; margin-bottom: 6px;"></div>
+        <div class="upper-lines" style="height: 18px; margin-bottom: 4px;"></div>
+        <div class="upper-lines" style="height: 20px; margin-bottom: 2px;"></div>
+        <div class="upper-lines" style="height: 22px; margin-bottom: 1px;"></div>
+    </div> -->
+</body>
+<script>
+    // Call the function to generate and populate <span> elements
+    generateSpans();
+
+    generateAnimatedSearchPlaceholders();
+
+    clickSearch();
+
+    // Function to make the GET request
+    async function sendGetRequest(endpoint) {
+        try {
+            const response = await fetch(endpoint); // Replace with your API endpoint
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+
+    // Function to generate <span> elements and populate them with data
+    async function generateSpans() {
+        const container1A = document.getElementById('container1A');
+        const container1B = document.getElementById('container1B');
+        const container2A = document.getElementById('container2A');
+        const container2B = document.getElementById('container2B');
+        const container3A = document.getElementById('container3A');
+        const container3B = document.getElementById('container3B');
+        const container4A = document.getElementById('container4A');
+        const container4B = document.getElementById('container4B');
+
+        // Fetch data
+        const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-level?level=2");
+
+        // Check if data is available
+        if (fetchedData) {
+
+            shuffleArray(fetchedData);
+            // Iterate over the data and create <span> elements
+            for (let i = 0; i < fetchedData.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = fetchedData[i].name; // Replace with the actual property you want to display
+                span.classList.add('circumstance');
+                span.setAttribute('id', fetchedData[i].id);
+
+                // Append the <span> to the container
+                container1A.appendChild(span.cloneNode(true));
+                container1B.appendChild(span.cloneNode(true));
+
+            }
+
+            shuffleArray(fetchedData);
+            for (let i = 0; i < fetchedData.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = fetchedData[i].name; // Replace with the actual property you want to display
+                span.classList.add('circumstance');
+                span.setAttribute('id', fetchedData[i].id);
+
+                // Append the <span> to the container
+
+                container2A.appendChild(span.cloneNode(true));
+                container2B.appendChild(span.cloneNode(true));
+
+            }
+
+            shuffleArray(fetchedData);
+            for (let i = 0; i < fetchedData.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = fetchedData[i].name; // Replace with the actual property you want to display
+                span.classList.add('circumstance');
+                span.setAttribute('id', fetchedData[i].id);
+                container3A.appendChild(span.cloneNode(true));
+                container3B.appendChild(span.cloneNode(true));
+
+            }
+
+            shuffleArray(fetchedData);
+            for (let i = 0; i < fetchedData.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = fetchedData[i].name; // Replace with the actual property you want to display
+                span.classList.add('circumstance');
+                span.setAttribute('id', fetchedData[i].id);
+
+                // Append the <span> to the container
+                container4A.appendChild(span.cloneNode(true));
+                container4B.appendChild(span.cloneNode(true));
+            }
+
+            var circumstanceElements = document.getElementsByClassName('circumstance');
+
+            // Iterate through the collection and add event listener to each element
+            for (var i = 0; i < circumstanceElements.length; i++) {
+                circumstanceElements[i].addEventListener('click', function (event) {
+                    // Your click event handling code here
+                    console.log("Element clicked:", this.textContent); // Example: Log the text content of the clicked element
+                    doClickCircumstanceFromHome(this.id, this.textContent);
+                });
+            }
+        }
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    async function doClickCircumstanceFromHome(id, name) {
+        window.location.href = "http://localhost:5000/story-card-builder-view-1?circumstanceId=" + id + "&circumstanceName=" + name;
+    }
+
+    function generateAnimatedSearchPlaceholders() {
+        const circumstanceSynonyms = [
+            "cerita",
+            "pov",
+            "isihati",
+            "deepthoughts",
+            "penghargaan",
+            "niat",
+            "citacita",
+            "commonground",
+            "sharedexperience",
+            "rasasyukur",
+            "reasontobethankful",
+            "situasi",
+            "nasib",
+            "impian",
+            "masalah",
+            "kekeliruan",
+            "pendapat",
+            "kurnian",
+            "perasaan",
+            "samalahkita",
+            "confession",
+            "luahan",
+            "someonerelatable",
+            "kejayaan",
+            "ujian",
+            "struggle",
+            "minat",
+        ];
+
+        let currentIndex = 0;
+
+        // Get the input element by its ID
+        var inputElement = document.getElementById('searchCircumstanceInput');
+
+        // Function to update the placeholder every 2 seconds
+        function updatePlaceholder() {
+            inputElement.placeholder = "Cari #" + circumstanceSynonyms[currentIndex];
+            currentIndex = (currentIndex + 1) % circumstanceSynonyms.length; // Loop through the array
+        }
+
+        // Set interval to update placeholder every 2 seconds
+        setInterval(updatePlaceholder, 2000);
+
+    }
+
+    function clickSearch() {
+        // Get the input element by its ID
+        var inputElement = document.getElementById('searchCircumstanceInput');
+
+        // Trigger click on the input element when the page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            inputElement.focus();
+        });
+    }
+
+    // document.addEventListener("DOMContentLoaded", async function () {
+    //     var fetchedData = await sendGetRequest("http://localhost:5000/circumstance-search-main?mainSearchTerm=kucing");
+    //     console.log(fetchedData);
+
+    //     for (let i = 1; i <= 5; i++) {
+    //         const searchResultChild = document.createElement("div");
+    //         searchResultChild.textContent = "New Element " + i;
+    //         searchResultChild.classList = "list-group-item";
+
+    //         const searchResultDiv = document.getElementById("searchResultDiv");
+    //         const searchResultChildren = document.getElementById("searchResultChildren");
+
+    //         searchResultDiv.insertBefore(searchResultChild, searchResultChildren);
+    //     }
+    // });
+
+    let typingTimer;
+    const doneTypingInterval = 500; // 1 second delay
+
+    const searchInput = document.getElementById('searchCircumstanceInput');
+
+    searchInput.addEventListener('input', function () {
+        clearTimeout(typingTimer);
+        if (searchInput.value) {
+            typingTimer = setTimeout(function () {
+                // Call your search function here
+                performSearch(searchInput.value);
+            }, doneTypingInterval);
+        } else {
+            // Clear the search results if the input is empty
+            searchResultsContainer.style.display = 'none';
+        }
+    });
+
+    function performSearch(searchTerm) {
+        // Perform your search logic and update the results container
+        // For demonstration purposes, a simple example is shown below:
+        const searchResults = [
+            "Result 1",
+            "Result 2",
+            "Result 3"
+        ];
+
+        // Update the search results container
+        searchResultsContainer.innerHTML = '';
+        searchResults.forEach(result => {
+            const resultElement = document.createElement('div');
+            resultElement.textContent = result;
+            searchResultsContainer.appendChild(resultElement);
+        });
+
+        // Show the search results container
+        searchResultsContainer.style.display = 'block';
+    }
+</script>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script
+
+</html>

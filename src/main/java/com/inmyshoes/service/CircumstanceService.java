@@ -3,6 +3,7 @@ package com.inmyshoes.service;
 import com.inmyshoes.model.Circumstance;
 import com.inmyshoes.repository.CircumstanceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -49,9 +50,15 @@ public class CircumstanceService {
         return circumstanceRepository.findByCategory(category);
     }
 
+    public List<Circumstance> getTop90ByCategory(String category) {
+        return circumstanceRepository.findTop90ByCategory(category);
+    }
+
     public List<Circumstance> getBySearchTerm(String searchTerm, String category) {
         return circumstanceRepository.findByNameContainingIgnoreCaseAndCategoryEquals(searchTerm, category);
     }
+
+
 
 
 

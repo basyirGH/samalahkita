@@ -20,7 +20,6 @@ public class StoryCardService {
     @Autowired
     private CircumstanceRepository circumstanceRepository;
 
-    @SuppressWarnings("null")
     public StoryCard save(StoryCard storyCard) {
         return storyCardRepository.save(storyCard);
     }
@@ -40,15 +39,18 @@ public class StoryCardService {
         return existingStoryCard;
     }
 
-    // public void linkCircumstancesWithStoryCard(Long circumstanceId, Long storyCardId) {
-    //     Circumstance cc = circumstanceRepository.findById(circumstanceId)
-    //             .orElseThrow(() -> new EntityNotFoundException("Student not found"));
-    //     StoryCard storyCard = storyCardRepository.findById(storyCardId)
-    //             .orElseThrow(() -> new EntityNotFoundException("Course not found"));
+    public void linkCircumstancesWithStoryCard(Long circumstanceId, Long storyCardId) {
+        Circumstance cc = circumstanceRepository.findById(circumstanceId)
+                .orElseThrow(() -> new EntityNotFoundException("Student not found"));
+        StoryCard storyCard = storyCardRepository.findById(storyCardId)
+                .orElseThrow(() -> new EntityNotFoundException("Course not found"));
 
-    //     cc.getRelatedStoryCards().add(storyCard);
-    //     storyCard.getRelatedCircumstances().add(cc);
+        cc.getRelatedStoryCards().add(storyCard);
+        storyCard.getRelatedCircumstances().add(cc);
 
-    // }
+        circumstanceRepository.save(cc);
+        storyCardRepository.save(storyCard);
+
+    }
 
 }

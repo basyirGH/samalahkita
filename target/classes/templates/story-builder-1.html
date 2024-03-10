@@ -22,14 +22,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Serif+Text:ital@0;1&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
-    <title>SamalahKita</title>
+    <title>samalahkita</title>
 </head>
 
 <body>
 
     <!-- header -->
     <header class="header navbar navbar-expand-lg navbar-light bg-light">
-        <a class="header-title navbar-brand" href="#">SamaLah.</a>
+        <a class="header-title navbar-brand" href="#">samalahkita</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -133,7 +133,7 @@
                 </div>
                 <br>
                 <div class="main-circumstance">
-                    <span style="font-size: medium; letter-spacing: 0.0em;">Untuk pengalaman yang terbaik, pilih
+                    <span style="font-size: medium; letter-spacing: 0.0em;"> Pilih
                         sekurang-kurangnya satu dalam setiap Jilid.<br> Anda boleh langkau semua Jilid kecuali
                         Demografi sebelum meneruskan.</span>
                 </div>
@@ -141,7 +141,7 @@
                 <div class="main-circumstance">
                     <span style="text-align: center; margin-right: 10px;"> <a
                             style="color: black; text-decoration: underline;" href="google.com"><span
-                                id="storyCardCounter">110</span> Kad Cerita
+                                id="storyCardCounter">110</span> luahan serupa
                             dijumpai</a></span>
                     <span id="storyBuilderNextButton" class="hover-link"
                         style="text-align: center; margin-left: 10px;"><a
@@ -427,27 +427,27 @@
         }
 
         async function getFeelings() {
-            const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=emotion");
+            const fetchedData = /*[[${emotionCC}]]*/ null;
             return fetchedData;
         }
 
         async function getActions() {
-            const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=action");
+            const fetchedData = /*[[${actionCC}]]*/ null;
             return fetchedData;
         }
 
         async function getGoals() {
-            const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=goal");
+            const fetchedData = /*[[${goalCC}]]*/ null;
             return fetchedData;
         }
 
         async function getOthers() {
-            const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=main");
+            const fetchedData = /*[[${otherCC}]]*/ null;
             return fetchedData;
         }
 
         async function getDemographies() {
-            const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=demographic");
+            const fetchedData = /*[[${demographicCC}]]*/ null;
             return fetchedData;
         }
 
@@ -516,43 +516,43 @@
         //     console.log(fetchedData);
         // });
 
-        // document.getElementById("storyBuilderNextButton").addEventListener("click", function (event) {
-        //     //window.location.href = "http://localhost:5000/story-card-builder-view-2";
+        document.getElementById("storyBuilderNextButton").addEventListener("click", function (event) {
 
-        //     // Replace the URL with the endpoint you want to send the POST request to
-        //     const apiUrl = 'http://localhost:5000/story-card-submit';
+            const jsonPayload = {};
+                mainAndSideCircumstancesMap.forEach((value, key) => {
+                    jsonPayload[key] = Object.fromEntries(value);
+                });
+            // Store the outerMap in sessionStorage
+            sessionStorage.setItem('mainAndSideCircumstancesMap', JSON.stringify(jsonPayload));
 
-        //     // Data to be sent in the request body (replace with your actual data)
-        //     //const jsonData = JSON.stringify([...mainAndSideCircumstancesMap]);
+            var mainCircumstanceId = /*[[${circumstanceId}]]*/ "";
+            sessionStorage.setItem('mainCircumstanceId', mainCircumstanceId);
 
-        //     // Configuration for the fetch request
-        //     const fetchOptions = {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json', // Adjust the content type based on your API requirements
-        //             // Add any other headers if needed
-        //         },
-        //         body: mainAndSideCircumstancesMap // Convert data to JSON string
-        //     };
+            // Redirect to the new page
+            window.location.href = 'http://localhost:5000/story-card-builder-view-2';
 
-        //     // Perform the fetch POST request
-        //     fetch(apiUrl, fetchOptions)
-        //         .then(response => {
-        //             if (!response.ok) {
-        //                 throw new Error(`HTTP error! Status: ${response.status}`);
-        //             }
-        //             return response.json(); // Assuming the response is in JSON format
-        //         })
-        //         .then(data => {
-        //             // Handle the successful response data
-        //             console.log('Response data:', data);
-        //         })
-        //         .catch(error => {
-        //             // Handle errors
-        //             console.error('Error:', error);
-        //         });
+            //     //Convert the Map to a JSON object
+            //     const jsonPayload = {};
+            //     mainAndSideCircumstancesMap.forEach((value, key) => {
+            //         jsonPayload[key] = Object.fromEntries(value);
+            //     });
 
-        // })
+            //     console.log(JSON.stringify(jsonPayload));
+
+            //     // Perform the fetch POST request
+            //     fetch(apiUrl, {
+            //         method: 'POST',
+            //         headers: {
+            //             'Content-Type': 'application/json'
+            //         },
+            //         body: JSON.stringify(jsonPayload)
+            //     }).then(response => response.json()).then(data => {
+            //         // Handle the response data if needed
+            //         console.log(data);
+            //     }).catch(error => {
+            //         console.error('Error:', error);
+            //     });
+        });
 
     </script>
 
