@@ -50,14 +50,26 @@
 
     <br>
     <div class="designer-container">
-        <div class="story-card"><span id="mainCircumstanceName"></span></div>
-        <!-- <div class="story-card"><span id="mainCircumstanceName"></span></div>
-        <div class="story-card"><span id="mainCircumstanceName"></span></div>
-        <div class="story-card"><span id="mainCircumstanceName"></span></div>
-        <div class="story-card"><span id="mainCircumstanceName"></span></div>
-        <div class="story-card"><span id="mainCircumstanceName"></span></div>
-        <div class="story-card"><span id="mainCircumstanceName"></span></div>
-        <div class="story-card"><span id="mainCircumstanceName"></span></div> -->
+        <div class="left">
+            <div class="story-card">
+                <div id="storyCardId" class="story-card-id"><span><i>#------</i></span></div>
+                <div id="mainCircumstanceName" class="circumstance-name"></div>
+                <br>
+                <div id="emotionList" class="circumstance-name"></div>
+                <br>
+                <div id="actionList" class="circumstance-name"></div>
+                <br>
+                <div id="goalList" class="circumstance-name"></div>
+                <br>
+                <div id="otherccList" class="circumstance-name"></div>
+                <br>
+                <div id="demographicList" class="circumstance-name"></div>
+                <br>
+            </div>
+        </div>
+        <div class="right">
+            <div class="story-card"></span></div>
+        </div>
     </div>
 
 
@@ -92,7 +104,10 @@
 
                 //skip main circumstance
                 if (outerKey == mainCircumstanceId) {
-                    document.getElementById("mainCircumstanceName").textContent = Object.keys(innerObject);
+                    var mainCC = document.getElementById("mainCircumstanceName");
+                    var newSpan = document.createElement('span');
+                    newSpan.textContent = Object.keys(innerObject);
+                    mainCC.appendChild(newSpan);
                     continue;
                 }
                 // Check if innerObject contains the targetValue
@@ -109,12 +124,57 @@
                 }
             }
 
-            console.log(mainCircumstanceId);
-            console.log(emotionList);
-            console.log(actionList);
-            console.log(goalList);
-            console.log(otherccList);
-            console.log(demographicList);
+            // console.log(mainCircumstanceId);
+            // console.log(emotionList);
+            // console.log(actionList);
+            // console.log(goalList);
+            // console.log(otherccList);
+            // console.log(demographicList);
+
+            var targetDiv = document.getElementById('emotionList');
+            for (var i = 0; i < emotionList.length; i++) {
+                var newSpan = document.createElement('span');
+                newSpan.textContent = emotionList[i];
+                targetDiv.appendChild(newSpan);
+                targetDiv.appendChild(document.createElement('br'));
+
+            }
+
+            targetDiv = document.getElementById('actionList');
+            for (var i = 0; i < actionList.length; i++) {
+                var newSpan = document.createElement('span');
+                newSpan.textContent = actionList[i];
+                targetDiv.appendChild(newSpan);
+                targetDiv.appendChild(document.createElement('br'));
+
+            }
+
+            targetDiv = document.getElementById('goalList');
+            for (var i = 0; i < goalList.length; i++) {
+                var newSpan = document.createElement('span');
+                newSpan.textContent = goalList[i];
+                targetDiv.appendChild(newSpan);
+                targetDiv.appendChild(document.createElement('br'));
+
+            }
+
+            targetDiv = document.getElementById('otherccList');
+            for (var i = 0; i < otherccList.length; i++) {
+                var newSpan = document.createElement('span');
+                newSpan.textContent = otherccList[i];
+                targetDiv.appendChild(newSpan);
+                targetDiv.appendChild(document.createElement('br'));
+
+            }
+
+            targetDiv = document.getElementById('demographicList');
+            for (var i = 0; i < demographicList.length; i++) {
+                var newSpan = document.createElement('span');
+                newSpan.textContent = demographicList[i];
+                targetDiv.appendChild(newSpan);
+                targetDiv.appendChild(document.createElement('br'));
+
+            }
 
         });
 

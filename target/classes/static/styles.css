@@ -541,7 +541,7 @@ body {
   text-align: center;
   overflow-y: auto;
   /* Enable vertical scroll for convenience on smaller screens */
-} 
+}
 
 #text {
   display: inline-block;
@@ -570,8 +570,10 @@ body {
   align-self: center;
   display: flex;
   width: 280px;
-  max-width: 100%; /* Set minimum width to the content width */
-  box-sizing: border-box; /* Include padding and border in the width calculation */
+  max-width: 100%;
+  /* Set minimum width to the content width */
+  box-sizing: border-box;
+  /* Include padding and border in the width calculation */
 }
 
 #search-container {
@@ -586,7 +588,7 @@ body {
   position: absolute;
   display: grid;
   align-items: center;
-  align-self: center!important;
+  align-self: center !important;
   align-content: center;
   text-align: center;
 }
@@ -602,32 +604,47 @@ body {
 .story-card {
   width: 350px;
   font-size: medium;
-  display: inline-flex;
-  margin: 10px;
+  /* display: flex; */
+  margin: 10px auto;
   letter-spacing: 0.1em;
   background: #ffffff00;
   color: #030000;
   padding: 5px 15px;
-  border-radius: 10px;
+  border-radius: 25px;
   border: 1px solid rgb(0, 0, 0);
   position: relative;
   /* Added positioning for the pseudo-element */
 }
 
-/* .designer-container {
-  width: 300px;
-  padding: 15px 30px;
-  border: 1px solid rgb(0, 0, 0);
-  position: relative;
-} */
-
 .designer-container {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   border: 1px solid rgb(0, 0, 0);
   margin-left: 5%;
   margin-right: 5%;
 }
 
+.left {
+  flex: 1;
+  background-color: #f0f0f0;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
+.right {
+  flex: 1;
+  background-color: #e0e0e0;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
+@media (max-width: 600px) {
+  .left, .right {
+      flex: 100%;
+  }
+}
 
+.story-card-id {
+  text-align: right;
+}
