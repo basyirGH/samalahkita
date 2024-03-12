@@ -3,7 +3,7 @@
   padding: 0;
   font-family: "Merriweather", sans-serif;
   font-weight: normal;
-  font-size: medium;
+  /* font-size: medium; */
   box-sizing: border-box;
 }
 
@@ -602,32 +602,58 @@ body {
 }
 
 .story-card {
-  width: 350px;
+  box-shadow: -5px 5px 12px rgba(0, 0, 0, 0.3);
+  width: 325px;
   font-size: medium;
   /* display: flex; */
   margin: 10px auto;
-  letter-spacing: 0.1em;
-  background: #ffffff00;
+  letter-spacing: 0.0em;
+  background: #f1efe3;
   color: #030000;
-  padding: 5px 15px;
-  border-radius: 25px;
-  border: 1px solid rgb(0, 0, 0);
+  padding: 15px 20px;
+  border-radius: 10px;
+  /* border: 1px solid rgb(0, 0, 0); */
   position: relative;
   /* Added positioning for the pseudo-element */
+}
+
+#mainCircumstanceName {
+  font-size: x-large !important;
+}
+
+.emotion-name,
+.action-name,
+.goal-name,
+.othercc-name,
+.demographic-name {
+  font-size: small !important;
+}
+
+.emotion-and-demographic-names {
+  display: flex;
+  justify-content: space-between;
+}
+
+.emotion-name {
+  text-align: left;
+}
+
+.demographic-name {
+  text-align: right;
 }
 
 .designer-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border: 1px solid rgb(0, 0, 0);
+  /* border: 1px solid rgb(0, 0, 0); */
   margin-left: 5%;
   margin-right: 5%;
 }
 
 .left {
   flex: 1;
-  background-color: #f0f0f0;
+  background-color: #f1efe3;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -640,11 +666,20 @@ body {
 }
 
 @media (max-width: 600px) {
-  .left, .right {
-      flex: 100%;
+
+  .left,
+  .right {
+    flex: 100%;
   }
 }
 
 .story-card-id {
+  font-size: small;
   text-align: right;
+  color:rgb(172, 172, 172)
+}
+
+#story-card-count{
+  font-size: small;
+  text-align: left;
 }

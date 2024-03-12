@@ -133,8 +133,8 @@
                 </div>
                 <br>
                 <div class="main-circumstance">
-                    <span style="font-size: medium; letter-spacing: 0.0em;"> Pilih
-                        sekurang-kurangnya satu dalam setiap Jilid.<br> Anda boleh langkau semua Jilid kecuali
+                    <span style="font-size: medium; letter-spacing: 0.0em;"> 
+                        Sekurang-kurangnya satu pilihan dalam setiap Jilid diperlukan.<br> Anda boleh langkau semua Jilid kecuali
                         Demografi sebelum meneruskan.</span>
                 </div>
                 <br>
@@ -479,8 +479,8 @@
                 var instructionElement = document.getElementById("instruction");
 
                 if (currentChapter == 1) {
-                    circumstanceData = await getFeelings();
-                    instructionElement.textContent = "Suara hati anda:"
+                    circumstanceData = await getFeelings()
+                    instructionElement.textContent = "Pilih suara hati anda:"
                 } else if (currentChapter == 2) {
                     circumstanceData = await getActions();
                     instructionElement.textContent = "Apa yang dilakukan disebabkan perasaan anda:"
@@ -492,7 +492,7 @@
                     instructionElement.textContent = "Situasi lain yang mungkin berkaitan:"
                 } else if (currentChapter == 5) {
                     circumstanceData = await getDemographies();
-                    instructionElement.textContent = "Maklumat diri anda:"
+                    instructionElement.textContent = "Pilh maklumat diri anda:"
                 }
 
                 generateSpans(circumstanceData);
@@ -504,7 +504,7 @@
         document.addEventListener("DOMContentLoaded", async function () {
             try {
                 var feelingsData = await getFeelings(); // Resolve the Promise
-                document.getElementById("instruction").textContent = "Suara hati anda:"
+                document.getElementById("instruction").textContent = "Pilih suara hati anda:"
                 generateSpans(feelingsData);
             } catch (error) {
                 console.error('Error in DOMContentLoaded:', error);
