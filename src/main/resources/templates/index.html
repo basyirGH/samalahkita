@@ -79,16 +79,23 @@
             <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
         </div> -->
 
-        <div id="searchResultDiv">
-            <div id="searchResultChildren">
-            </div>
 
-        </div>
         <div id="searchInputDiv" class="row height d-flex justify-content-center align-items-center">
             <div class="form">
                 <i class="fa fa-search"></i>
                 <input type="text" class="form-control form-input" id="searchCircumstanceInput">
             </div>
+        </div>
+        <div id="searchResultArea" style="display:grid; justify-content: center;">
+            <!-- <div class="search-result-item">
+                <span>Saya 'cope' dengan perasaan negatif melalui media untuk mengelakkan 'overthinking'</span>
+            </div>
+            <div class="search-result-item">
+                <span>Saya 'cope' dengan perasaan negatif melalui media untuk mengelakkan 'overthinking'</span>
+            </div>
+            <div class="search-result-item">
+                <span>Saya 'cope' dengan perasaan negatif melalui media untuk mengelakkan 'overthinking'</span>
+            </div> -->
         </div>
 
         <br>
@@ -335,44 +342,47 @@
     //     }
     // });
 
-    let typingTimer;
-    const doneTypingInterval = 500; // 1 second delay
-
     const searchInput = document.getElementById('searchCircumstanceInput');
+    const searchResultArea = document.getElementById('searchResultArea');
 
-    searchInput.addEventListener('input', function () {
+    let typingTimer;
+    const doneTypingInterval = 1000; // 1 second
+
+    searchInput.addEventListener('input', function() {
         clearTimeout(typingTimer);
         if (searchInput.value) {
-            typingTimer = setTimeout(function () {
-                // Call your search function here
-                performSearch(searchInput.value);
-            }, doneTypingInterval);
+            typingTimer = setTimeout(getSearchResults(searchInput.value), doneTypingInterval);
         } else {
-            // Clear the search results if the input is empty
-            searchResultsContainer.style.display = 'none';
+            // Clear search results if input is empty
+            searchResultArea.innerHTML = '';
         }
     });
 
-    function performSearch(searchTerm) {
-        // Perform your search logic and update the results container
-        // For demonstration purposes, a simple example is shown below:
-        const searchResults = [
-            "Result 1",
-            "Result 2",
-            "Result 3"
-        ];
+    async function getSearchResults(searchTerm) {
 
-        // Update the search results container
-        searchResultsContainer.innerHTML = '';
+        var fetchedData = await sendGetRequest("http://localhost:5000/circumstance-search-main?mainSearchTerm=" + searchTerm);
+        //console.log(fetchedData);
+
+        // Here you can fetch your search results or generate them dynamically
+        // For example, let's say we have an array of search results
+        const searchResults = [];
+
+        for (var i = 0; i < fetchedData.length; i++) {
+            searchResults[i] = fetchedData[i].name;
+        }
+
+        // Clear previous search results
+        searchResultArea.innerHTML = '';
+
+        // Populate searchResultArea with new search results
         searchResults.forEach(result => {
-            const resultElement = document.createElement('div');
-            resultElement.textContent = result;
-            searchResultsContainer.appendChild(resultElement);
+            const div = document.createElement('div');
+            div.classList.add('search-result-item');
+            div.innerHTML = '<span>' + result + '</span>';
+            searchResultArea.appendChild(div);
         });
-
-        // Show the search results container
-        searchResultsContainer.style.display = 'block';
     }
+
 </script>
 
 <!-- Bootstrap JS and dependencies -->
