@@ -63,31 +63,31 @@ public class CircumstanceController {
 
     // get cc in specific main search terms
     @GetMapping("/circumstance-search-main")
-    public List<Circumstance> getSearchResultForMain(@RequestParam(name = "mainSearchTerm") String mainSearchTerm) {
-        return circumstanceService.getBySearchTerm(mainSearchTerm, "main");
+    public List<Circumstance> getSearchResultForMain(@RequestParam(name = "searchTerm") String searchTerm) {
+        return circumstanceService.getBySearchTerm(searchTerm, "main");
     }
 
     @GetMapping("/circumstance-search-emotion")
     public List<Circumstance> getSearchResultForEmotion(
-            @RequestParam(name = "emotionSearchTerm") String emotionSearchTerm) {
-        return circumstanceService.getBySearchTerm(emotionSearchTerm, "emotion");
+            @RequestParam(name = "searchTerm") String searchTerm) {
+        return circumstanceService.getBySearchTerm(searchTerm, "emotion");
     }
 
     @GetMapping("/circumstance-search-action")
     public List<Circumstance> getSearchResultForAction(
-            @RequestParam(name = "actionSearchTerm") String actionSearchTerm) {
-        return circumstanceService.getBySearchTerm(actionSearchTerm, "action");
+            @RequestParam(name = "searchTerm") String searchTerm) {
+        return circumstanceService.getBySearchTerm(searchTerm, "action");
     }
 
     @GetMapping("/circumstance-search-goal")
-    public List<Circumstance> getSearchResultForGoal(@RequestParam(name = "goalSearchTerm") String goalSearchTerm) {
-        return circumstanceService.getBySearchTerm(goalSearchTerm, "goal");
+    public List<Circumstance> getSearchResultForGoal(@RequestParam(name = "searchTerm") String searchTerm) {
+        return circumstanceService.getBySearchTerm(searchTerm, "goal");
     }
 
     @GetMapping("/circumstance-search-demography")
     public List<Circumstance> getSearchResultForDemography(
-            @RequestParam(name = "demographySearchTerm") String demographySearchTerm) {
-        return circumstanceService.getBySearchTerm(demographySearchTerm, "demographic");
+            @RequestParam(name = "searchTerm") String searchTerm) {
+        return circumstanceService.getBySearchTerm(searchTerm, "demographic");
     }
 
 }

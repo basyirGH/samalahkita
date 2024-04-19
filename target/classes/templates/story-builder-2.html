@@ -52,21 +52,25 @@
     <div class="designer-container">
         <div class="left">
             <div class="story-card">
-                <div id="storyCardId" class="story-card-id"><span><i>kad cerita #66BG54</i></span></div>
-                <div id="mainCircumstanceName"></div>
+                <div id="nameAndCardId"><div id="websiteName"><span></span></div><div id="storyCardId" class="story-card-id"><span style="text-align:right"><i>kad cerita #66BG54</i></span></div></div>
                 <div class="emotion-and-demographic-names">
-                    <div id="emotionList" class="emotion-name"></div>
-                    <div id="demographicList" class="demographic-name"></div>
+                    <div class="round-border-avatar-icon"><img style="height: 60px; width: 60px"
+                            th:src="@{/icons/sad-emotions/silent_tears.gif}" alt="avatar" /></div>
+                    <!-- <img style="height: 60px; width: 60px" th:src="@{/icons/animals/fox.svg}" alt="fox" /> -->
+                    <div class="emotion-and-demographic-vertical">
+                        <span style="font-weight: bold; font-size: small;">@musang_melaka3409</span>
+                        <div id="demographicList" class="demographic-name"></div>
+                        <div id="emotionList" class="emotion-name"></div>
+                    </div>
                 </div>
-                <br>
+                <div id="mainCircumstanceName"></div>
+                <!-- <br> -->
                 <div id="actionList" class="action-name"></div>
-                <br>
                 <div id="goalList" class="goal-name"></div>
-                <br>
                 <div id="otherccList" class="othercc-name"></div>
                 <br>
                 <div id="story-card-count">06:55 am 07.03.2024 <br>
-                    'Generate' luahan anda di <b>samalahkita.my</b>
+                    Kongsi dan cari luahan serupa di <b>samalahkita.my</b>
                 </div>
             </div>
         </div>
@@ -133,15 +137,30 @@
             // console.log(goalList);
             // console.log(otherccList);
             // console.log(demographicList);
+            // targetDiv = document.getElementById('demographicList');
+            // var demographicSpan = document.createElement('span');
+            // for (var i = 0; i < demographicList.length; i++) {
+            //     if (i == demographicList.length-1) {
+            //         demographicSpan.textContent = demographicSpan.textContent + demographicList[i];
+            //         break;
+            //     }
+            //     demographicSpan.textContent = demographicSpan.textContent + demographicList[i] + ", ";
+
+            // }
+            // targetDiv.appendChild(demographicSpan);
+            // targetDiv.appendChild(document.createElement('br'));
 
             var targetDiv = document.getElementById('emotionList');
+            var emotionSpan = document.createElement('span');
             for (var i = 0; i < emotionList.length; i++) {
-                var newSpan = document.createElement('span');
-                newSpan.textContent = emotionList[i];
-                targetDiv.appendChild(newSpan);
-                targetDiv.appendChild(document.createElement('br'));
-
+                if (i == emotionList.length - 1) {
+                    emotionSpan.textContent = emotionSpan.textContent + emotionList[i] + ". ";
+                    break;
+                }
+                emotionSpan.textContent = emotionSpan.textContent + emotionList[i] + ", ";
             }
+            targetDiv.appendChild(emotionSpan);
+            targetDiv.appendChild(document.createElement('br'));
 
             targetDiv = document.getElementById('actionList');
             for (var i = 0; i < actionList.length; i++) {
@@ -167,17 +186,20 @@
                 newSpan.textContent = otherccList[i];
                 targetDiv.appendChild(newSpan);
                 targetDiv.appendChild(document.createElement('br'));
-
             }
 
             targetDiv = document.getElementById('demographicList');
+            var demographicSpan = document.createElement('span');
             for (var i = 0; i < demographicList.length; i++) {
-                var newSpan = document.createElement('span');
-                newSpan.textContent = demographicList[i];
-                targetDiv.appendChild(newSpan);
-                targetDiv.appendChild(document.createElement('br'));
+                if (i == demographicList.length - 1) {
+                    demographicSpan.textContent = demographicSpan.textContent + demographicList[i] + ". ";
+                    break;
+                }
+                demographicSpan.textContent = demographicSpan.textContent + demographicList[i] + ", ";
 
             }
+            targetDiv.appendChild(demographicSpan);
+            targetDiv.appendChild(document.createElement('br'));
 
         });
 

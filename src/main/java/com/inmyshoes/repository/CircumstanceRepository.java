@@ -19,5 +19,7 @@ public interface CircumstanceRepository extends JpaRepository<Circumstance, Long
 
     List<Circumstance> findTop90ByCategory(String category);
 
+    List<Circumstance> findTop45ByCategory(String category);
+
     List<Circumstance> findByNameContainingIgnoreCaseAndCategoryEquals(String searchTerm, String category);
 }

@@ -27,7 +27,7 @@
 <body>
 
     <!-- header -->
-    <header class="header navbar navbar-expand-lg navbar-light bg-light">
+    <!-- <header class="header navbar navbar-expand-lg navbar-light bg-light">
         <a class="header-title navbar-brand" href="#">samalahkita</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -43,12 +43,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Hubungi Kami</a>
                 </li>
-                <!-- <li>
-                    <img style="height: 30px; width: 30px" th:src="@{/icons/hug.svg}" alt="hugging" />
-                </li> -->
             </ul>
         </div>
-    </header>
+    </header> -->
 
 
     <!-- infinite scroll -->
@@ -67,10 +64,10 @@
                 <div id="container3A"></div>
                 <div id="container3B"></div>
             </div>
-            <div class="scroll" style="--time:600s">
+            <!-- <div class="scroll" style="--time:600s">
                 <div id="container4A"></div>
                 <div id="container4B"></div>
-            </div>
+            </div> -->
         </div>
         <br><br>
         <!-- <div class="list-group">
@@ -79,37 +76,34 @@
             <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
         </div> -->
 
-
+        <div id="welcome-page-title">samalahkita</div>
+        <p class="intro text-center mx-3">
+            <!-- Adjust the mx-3 value for the desired left and right margin -->
+            Luahkan segalanya, anda tidak keseorangan. Kongsi dan cari bantuan, sokongan emosi atau tips menghadapi liku kehidupan di sini.  
+            <br><br>
+        </p>
         <div id="searchInputDiv" class="row height d-flex justify-content-center align-items-center">
             <div class="form">
                 <i class="fa fa-search"></i>
                 <input type="text" class="form-control form-input" id="searchCircumstanceInput">
             </div>
+            <div class="round-border-button-for-icon">
+                <span><img style="height: 55px; width: 25%" th:src="@{/icons/plus.svg}" alt="tambah situasi baru" /></span>
+            </div>
         </div>
         <div id="searchResultArea" style="display:grid; justify-content: center;">
-            <!-- <div class="search-result-item">
-                <span>Saya 'cope' dengan perasaan negatif melalui media untuk mengelakkan 'overthinking'</span>
-            </div>
-            <div class="search-result-item">
-                <span>Saya 'cope' dengan perasaan negatif melalui media untuk mengelakkan 'overthinking'</span>
-            </div>
-            <div class="search-result-item">
-                <span>Saya 'cope' dengan perasaan negatif melalui media untuk mengelakkan 'overthinking'</span>
-            </div> -->
         </div>
 
-        <br>
         <div style="z-index: 0" class="container mt-2">
-            <p class="intro text-center mx-3">
-                <!-- Adjust the mx-3 value for the desired left and right margin -->
-                Anda tidak keseorangan, luahkan segalanya di sini. <br> Tiada pendaftaran diperlukan dan 100% data
-                adalah 'anonymous'.
-                <br>
-            </p><br>
-            <p>#Samalah ialah satu tempat untuk berkongsi persamaan dan mencari kisah atau pendapat yang serupa.
-                <br><a style="color: black; text-decoration: underline;" href="google.com">Kenapa laman web ini wujud?
-                    <img style="height: 18px; width: 18px;" th:src="@{/icons/new_tab.svg}" alt="new tab" /></a>
+            <br>
+            <p>Tiada pendaftaran diperlukan dan 100% data adalah 'anonymous'.
+                <!-- <br><a style="color: black; text-decoration: underline;" href="google.com">Kenapa laman web ini wujud?
+                    <img style="height: 18px; width: 18px;" th:src="@{/icons/new_tab.svg}" alt="new tab" /></a> -->
             </p>
+            <a style="color: black; text-decoration: underline;" href="google.com">Kenapa laman web ini wujud?</a>
+            <a style="color: black; text-decoration: underline;" href="google.com">Keselamatan dan Privasi</a>
+            <br>
+            <a style="color: black; text-decoration: underline;" href="google.com?">Hubungi Admin</a>
             <br><br><br>
         </div>
     </div>
@@ -158,7 +152,7 @@
 
     generateAnimatedSearchPlaceholders();
 
-    clickSearch();
+    //clickSearch();
 
     // Function to make the GET request
     async function sendGetRequest(endpoint) {
@@ -184,8 +178,8 @@
         const container2B = document.getElementById('container2B');
         const container3A = document.getElementById('container3A');
         const container3B = document.getElementById('container3B');
-        const container4A = document.getElementById('container4A');
-        const container4B = document.getElementById('container4B');
+        // const container4A = document.getElementById('container4A');
+        // const container4B = document.getElementById('container4B');
 
         // Fetch data
         //const fetchedData = await sendGetRequest("http://localhost:5000/circumstance-category?category=2");
@@ -233,17 +227,17 @@
 
             }
 
-            shuffleArray(ccList);
-            for (let i = 0; i < ccList.length; i++) {
-                const span = document.createElement('span');
-                span.textContent = ccList[i].name; // Replace with the actual property you want to display
-                span.classList.add('circumstance');
-                span.setAttribute('id', ccList[i].id);
+            // shuffleArray(ccList);
+            // for (let i = 0; i < ccList.length; i++) {
+            //     const span = document.createElement('span');
+            //     span.textContent = ccList[i].name; // Replace with the actual property you want to display
+            //     span.classList.add('circumstance');
+            //     span.setAttribute('id', ccList[i].id);
 
-                // Append the <span> to the container
-                container4A.appendChild(span.cloneNode(true));
-                container4B.appendChild(span.cloneNode(true));
-            }
+            //     // Append the <span> to the container
+            //     container4A.appendChild(span.cloneNode(true));
+            //     container4B.appendChild(span.cloneNode(true));
+            // }
 
             var circumstanceElements = document.getElementsByClassName('circumstance');
 
@@ -275,29 +269,21 @@
             "pov",
             "isihati",
             "deepthoughts",
-            "penghargaan",
             "niat",
-            "citacita",
             "commonground",
             "sharedexperience",
-            "rasasyukur",
-            "reasontobethankful",
             "situasi",
             "nasib",
-            "impian",
             "masalah",
             "kekeliruan",
             "pendapat",
-            "kurnian",
             "perasaan",
             "samalahkita",
             "confession",
             "luahan",
             "someonerelatable",
-            "kejayaan",
             "ujian",
             "struggle",
-            "minat",
         ];
 
         let currentIndex = 0;
@@ -311,8 +297,7 @@
             currentIndex = (currentIndex + 1) % circumstanceSynonyms.length; // Loop through the array
         }
 
-        // Set interval to update placeholder every 2 seconds
-        setInterval(updatePlaceholder, 2000);
+        setInterval(updatePlaceholder, 1500);
 
     }
 
@@ -348,7 +333,7 @@
     let typingTimer;
     const doneTypingInterval = 1000; // 1 second
 
-    searchInput.addEventListener('input', function() {
+    searchInput.addEventListener('input', function () {
         clearTimeout(typingTimer);
         if (searchInput.value) {
             typingTimer = setTimeout(getSearchResults(searchInput.value), doneTypingInterval);
@@ -360,25 +345,35 @@
 
     async function getSearchResults(searchTerm) {
 
-        var fetchedData = await sendGetRequest("http://localhost:5000/circumstance-search-main?mainSearchTerm=" + searchTerm);
+        var fetchedData = await sendGetRequest("http://localhost:5000/circumstance-search-main?searchTerm=" + searchTerm);
         //console.log(fetchedData);
 
         // Here you can fetch your search results or generate them dynamically
         // For example, let's say we have an array of search results
         const searchResults = [];
+        var resultItem = null;
 
         for (var i = 0; i < fetchedData.length; i++) {
-            searchResults[i] = fetchedData[i].name;
+            resultItem = new Map();
+            resultItem.set(fetchedData[i].id, fetchedData[i].name);
+            searchResults[i] = resultItem;
         }
 
         // Clear previous search results
         searchResultArea.innerHTML = '';
 
         // Populate searchResultArea with new search results
-        searchResults.forEach(result => {
+        searchResults.forEach(resultItem => {
             const div = document.createElement('div');
             div.classList.add('search-result-item');
-            div.innerHTML = '<span>' + result + '</span>';
+
+            const id = Array.from(resultItem.keys())[0]; // Get the first (and only) key
+            const name = resultItem.get(id);
+
+            div.innerHTML = '<span>' + name + '</span>';
+            div.addEventListener("click", async function () {
+                await doClickCircumstanceFromHome(id, name);
+            });
             searchResultArea.appendChild(div);
         });
     }

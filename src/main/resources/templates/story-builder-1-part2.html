@@ -58,7 +58,7 @@
             <!-- carousel -->
             <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="false">
                 <!-- Button on the left -->
-                <a class="prev-carousel" role="button" data-slide="prev" href="#carouselExample">
+                <!-- <a class="prev-carousel" role="button" data-slide="prev" href="#carouselExample">
                     <div id="prevChapter" class="white-button">
                         <span><i class="fas fa-chevron-left"></i></span>
                     </div>
@@ -67,12 +67,12 @@
                     <div id="nextChapter" class="white-button">
                         <span><i class="fas fa-chevron-right"></i></span>
                     </div>
-                </a>
+                </a> -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="d-block w-100">
-                            <h6 id="carouselCounter"></h6>
-                            <h4 id="carouselTitle"></h4>
+                            <!-- <h6 id="carouselCounter"></h6> -->
+                            <h4 id="carouselTitle">Cerita</h4>
                         </div>
                     </div>
                 </div>
@@ -82,10 +82,10 @@
             <!-- infinite scroll -->
             <div class="content-1">
                 <div class="main-circumstance">
-                    <span id="instruction" style="letter-spacing: 0.0em; font-size: medium;"></span>
+                    <span id="instruction" style="letter-spacing: 0.0em; font-size: medium;">Perincikan situasi anda:</span>
                 </div>
                 <br>
-                <div class="circumstances">
+                <!-- <div class="circumstances">
                     <div class="scroll" style="">
                         <div id="container1A"></div>
                         <div id="container1B"></div>
@@ -98,15 +98,17 @@
                         <div id="container3A"></div>
                         <div id="container3B"></div>
                     </div>
-                </div>
-                <div id="storyParagraph">
-                    <textarea id="storyParagraphTextArea">
-
-                    </textarea>
-                </div>
+                </div> -->
+                <!-- <div class="row height d-flex justify-content-center align-items-center">
+                    <div class="form">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control form-input" id="searchCircumstanceInput"
+                            placeholder="Carian">
+                    </div>
+                </div> -->
                 <br>
 
-                <div id="searchInputDiv" class="row height d-flex justify-content-center align-items-center">
+                <!-- <div id="searchInputDiv" class="row height d-flex justify-content-center align-items-center">
                     <div class="form">
                         <i class="fa fa-search"></i>
                         <input type="text" class="form-control form-input" id="searchCircumstanceInput"
@@ -114,7 +116,7 @@
                     </div>
                 </div>
                 <div id="searchResultArea" style="display:grid; justify-content: center;">
-                </div>
+                </div> -->
 
                 <br>
                 <!-- <div class="main-circumstance">
@@ -129,8 +131,7 @@
                 </div>
                 <br>
                 <div class="main-circumstance">
-                    <div class="round-border-button-for-text"><span style="text-align: center;"> </span> Baca luahan
-                        serupa</span></div>
+                    <div class="round-border-button-for-text"><span style="text-align: center;"> </span> Baca luahan serupa</span></div>
                     <div class="round-border-button-for-text">
                         <span id="storyBuilderNextButton" class="hover-link"
                             style="text-align: center;">Seterusnya</span>
@@ -442,7 +443,7 @@
 
         // Initialize the initial value and total number of values
         var currentChapter = 1;
-        var totalChapters = 3;
+        var totalChapters = 2;
 
         document.getElementById("prevChapter").addEventListener('click', async function () {
             try {
@@ -467,7 +468,6 @@
 
         var endpointTerm = "circumstance-search-emotion";
         var searchResultItemCategory = "emotion";
-        var storyParagraphTextArea = document.getElementById("storyParagraphTextArea");
 
         // Function to handle clicking the right button
         async function handleNavClick(nav) {
@@ -485,39 +485,13 @@
                 var instructionElement = document.getElementById("instruction");
 
                 if (currentChapter == 1) {
-                    document.getElementById("carouselCounter").textContent = "1/3";
+                    document.getElementById("carouselCounter").textContent = "1/2";
                     document.getElementById("carouselTitle").textContent = "Perasaan";
-                    document.getElementsByClassName("circumstances")[0].style.display = "block";
-                    document.getElementById("storyParagraph").style.display = "none";
-                    document.getElementById("searchInputDiv").style.display = "block";
-                    document.getElementById("searchResultArea").style.display = "block";
                     circumstanceData = await getFeelings()
                     instructionElement.textContent = "Pilih suara hati anda:"
                     endpointTerm = "circumstance-search-emotion";
                     searchResultItemCategory = "emotion";
-                }
-                else if (currentChapter == 2) {
-                    document.getElementById("carouselCounter").textContent = "2/3";
-                    document.getElementById("carouselTitle").textContent = "Demografi";
-                    document.getElementsByClassName("circumstances")[0].style.display = "block";
-                    document.getElementById("storyParagraph").style.display = "none";
-                    document.getElementById("searchInputDiv").style.display = "block";
-                    document.getElementById("searchResultArea").style.display = "block";
-                    circumstanceData = await getDemographies();
-                    instructionElement.textContent = "Pilh maklumat diri anda:"
-                    endpointTerm = "circumstance-search-demography";
-                    searchResultItemCategory = "demographic";
-                }
-                else if (currentChapter == 3) {
-                    document.getElementById("carouselCounter").textContent = "3/3";
-                    document.getElementById("carouselTitle").textContent = "Cerita";
-                    document.getElementsByClassName("circumstances")[0].style.display = "none";
-                    document.getElementById("storyParagraph").style.display = "block";
-                    document.getElementById("searchInputDiv").style.setProperty("display", "none", "important");
-                    document.getElementById("searchResultArea").style.setProperty("display", "none", "important");
-                    instructionElement.textContent = "Perincikan situasi anda:"
-                    storyParagraphTextArea.focus();
-                }
+                } 
                 // else if (currentChapter == 2) {
                 //     document.getElementById("carouselCounter").textContent = "2/5";
                 //     document.getElementById("carouselTitle").textContent = "Tindakan";
@@ -542,7 +516,14 @@
                 //     endpointTerm = "circumstance-search-main";
                 //     searchResultItemCategory = "main";
                 // } 
-
+                else if (currentChapter == 2) {
+                    document.getElementById("carouselCounter").textContent = "2/2";
+                    document.getElementById("carouselTitle").textContent = "Demografi";
+                    circumstanceData = await getDemographies();
+                    instructionElement.textContent = "Pilh maklumat diri anda:"
+                    endpointTerm = "circumstance-search-demography";
+                    searchResultItemCategory = "demographic";
+                }
 
                 generateSpans(circumstanceData);
             } catch (error) {
@@ -553,12 +534,9 @@
         document.addEventListener("DOMContentLoaded", async function () {
             try {
                 var feelingsData = await getFeelings(); // Resolve the Promise
-                document.getElementById("carouselCounter").textContent = "1/3";
+                document.getElementById("carouselCounter").textContent = "1/2";
                 document.getElementById("carouselTitle").textContent = "Perasaan";
                 document.getElementById("instruction").textContent = "Pilih suara hati anda:"
-                document.getElementById("storyParagraph").style.display = "none";
-                document.getElementById("searchInputDiv").style.display = "block";
-                document.getElementById("searchResultArea").style.display = "block";
                 generateSpans(feelingsData);
             } catch (error) {
                 console.error('Error in DOMContentLoaded:', error);

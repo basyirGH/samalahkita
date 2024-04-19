@@ -54,6 +54,10 @@ public class CircumstanceService {
         return circumstanceRepository.findTop90ByCategory(category);
     }
 
+    public List<Circumstance> getTop45ByCategory(String category) {
+        return circumstanceRepository.findTop45ByCategory(category);
+    }
+
     public List<Circumstance> getBySearchTerm(String searchTerm, String category) {
         return circumstanceRepository.findByNameContainingIgnoreCaseAndCategoryEquals(searchTerm, category);
     }

@@ -40,7 +40,7 @@ public class StoryCardController {
         mav.addObject("emotionCC", circumstanceService.getTop90ByCategory("emotion"));
         mav.addObject("actionCC", circumstanceService.getTop90ByCategory("action"));
         mav.addObject("goalCC", circumstanceService.getTop90ByCategory("goal"));
-        mav.addObject("otherCC", circumstanceService.getTop90ByCategory("main"));
+        mav.addObject("otherCC", circumstanceService.getTop45ByCategory("main"));
         mav.addObject("demographicCC", circumstanceService.getTop90ByCategory("demographic"));
         return mav;
     }
